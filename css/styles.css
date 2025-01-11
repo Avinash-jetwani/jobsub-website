@@ -1,0 +1,610 @@
+/* 
+  General Reset & Base Styles 
+*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    background-color: #0C3273; /* Classy Blue */
+    color: #EAE9E9; /* Pearl White */
+  }
+  
+  /* 
+    HERO SECTION 
+  */
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 50px;
+    background-color: #0C3273; /* Classy Blue */
+    color: #EAE9E9; /* Pearl White */
+  }
+  
+  .hero-content {
+    max-width: 50%;
+  }
+  
+  .hero-content h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 34px; /* Title 1 */
+    line-height: 1.2;
+    letter-spacing: 0.36px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px; /* Body */
+    line-height: 22px;
+    letter-spacing: -0.41px;
+    margin-bottom: 30px;
+  }
+  
+  .hero-buttons .btn {
+    display: inline-block;
+    background-color: #98C2D8; /* Skylight Blue */
+    color: #0C3273; /* Classy Blue */
+    text-decoration: none;
+    padding: 12px 25px;
+    margin-right: 15px;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .hero-buttons .btn-secondary {
+    display: inline-block;
+    background-color: transparent;
+    color: #98C2D8; /* Skylight Blue */
+    border: 2px solid #98C2D8;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .hero-buttons .btn:hover {
+    background-color: #B0D4E3; /* Lighter Skylight Blue */
+  }
+  
+  .hero-buttons .btn-secondary:hover {
+    background-color: #98C2D8;
+    color: #0C3273;
+  }
+  
+  .hero-image {
+    max-width: 50%;
+    text-align: right;
+  }
+  
+  .hero-image img {
+    width: 90%;
+    max-width: 450px;
+    max-height: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* 
+    DETAILS SECTION 
+  */
+  .details {
+    padding: 60px 50px;
+    background-color: #0C3273; /* Classy Blue */
+    color: #EAE9E9; /* Pearl White */
+    text-align: center;
+  }
+  
+  .details .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 28px; /* Title 2 */
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .details .section-description {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px; /* Body */
+    line-height: 22px;
+    letter-spacing: -0.41px;
+    margin-bottom: 40px;
+    color: #98C2D8; /* Skylight Blue */
+  }
+  
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  
+  .details-item {
+    background-color: #EAE9E9; /* Pearl White */
+    color: #0C3273; /* Classy Blue */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .details-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .details-item h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px; /* Title 2 */
+    margin-bottom: 10px;
+  }
+  
+  .details-item p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; /* Body */
+    line-height: 20px;
+  }
+  
+  /* 
+    FEATURES SECTION 
+  */
+  .features {
+    padding: 60px 50px;
+    background-color: #EAE9E9; /* Pearl White */
+    color: #0C3273; /* Classy Blue */
+    text-align: center;
+  }
+  
+  .features .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 28px; /* Title 2 */
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .features .section-subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px; /* Body */
+    line-height: 22px;
+    letter-spacing: -0.41px;
+    margin-bottom: 40px;
+    color: #98C2D8; /* Skylight Blue */
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+  }
+  
+  .feature-item {
+    background-color: #0C3273; /* Classy Blue */
+    color: #EAE9E9; /* Pearl White */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .feature-item img {
+    width: 60px;
+    margin-bottom: 15px;
+  }
+  
+  .feature-item h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px; /* Title 2 */
+    margin-bottom: 10px;
+  }
+  
+  .feature-item p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; /* Body */
+    line-height: 20px;
+  }
+  
+  /* 
+    HOW JOBSUB WORKS SECTION 
+  */
+  .how-it-works {
+    padding: 60px 50px;
+    background-color: #EAE9E9; /* Pearl White */
+    text-align: center;
+  }
+  
+  .how-it-works .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 28px; /* Title 2 */
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #0C3273;
+  }
+  
+  .how-it-works .section-description {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    margin-bottom: 40px;
+    color: #0C3273;
+  }
+  
+  .how-it-works-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center; /* For better alignment on narrower screens */
+  }
+  
+  /* Leads and Live Jobs Container */
+  .how-it-works-leads,
+  .how-it-works-live-jobs {
+    flex: 1;
+    min-width: 300px;
+    padding: 30px;
+    border-radius: 10px;
+    color: #EAE9E9; /* Pearl White */
+    background: linear-gradient(135deg, #0C3273, #98C2D8); /* Gradient */
+  }
+  
+  /* Steps Container */
+  .steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Step Card */
+  .steps li {
+    position: relative;
+    background-color: #0C3273; /* Classy Blue */
+    padding: 20px 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .steps li:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #98C2D8, #0C3273); /* Skylight Blue to Classy Blue */
+  }
+  
+  /* Gradient Top Line */
+  .steps li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #FFC107, #FFD700); /* Golden gradient */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  /* Step Number */
+  .steps li .step-number {
+    font-size: 30px;
+    font-weight: bold;
+    color: #FFD700; /* Gold */
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .steps li:hover .step-number {
+    transform: scale(1.2);
+  }
+  
+  /* Step Icon */
+  .steps li img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+  }
+  
+  .steps li:hover img {
+    transform: rotate(10deg);
+  }
+  
+  /* Step Text */
+  .steps li p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #EAE9E9; /* Pearl White */
+    transition: color 0.3s ease;
+  }
+  
+  .steps li:hover p {
+    color: #FFF; /* Bright white for hover effect */
+  }
+  
+  /* 
+    APP PREVIEW SECTION 
+  */
+  .app-preview {
+    padding: 60px 20px;
+    background: linear-gradient(to bottom, #f5f5f5, #ffffff);
+    text-align: center;
+    color: #0c3273;
+  }
+  
+  .app-preview .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .app-preview .section-description {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    margin-bottom: 40px;
+    color: #666666;
+  }
+  
+  /* Carousel Container */
+  .carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 40px;
+  }
+  
+  /* We'll use a flexible approach for the carousel */
+  .carousel {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  /* Carousel Item */
+  .carousel-item {
+    flex: 0 0 150px; /* Default size for side images */
+    transform: scale(0.8);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.5;
+  }
+  
+  .carousel-item.center-item {
+    flex: 0 0 250px; /* Larger size for center image */
+    transform: scale(1.1);
+    opacity: 1;
+    z-index: 2;
+  }
+  
+  .carousel-item {
+    position: relative;
+    order: 0; /* Default order */
+  }
+  
+  /* Carousel Arrows */
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #0C3273;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+  }
+  
+  .carousel-arrow.left-arrow {
+    left: calc(50% - 135px); /* Adjust closer to the center image */
+  }
+  
+  .carousel-arrow.right-arrow {
+    right: calc(50% - 135px); /* Adjust closer to the center image */
+  }
+  
+  .carousel-arrow:hover {
+    background-color: #004080;
+  }
+  
+  /* CTA Buttons (Download links) */
+  .cta {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .cta .btn {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #0C3273, #004080); /* Classy Blue Gradient */
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .cta .btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .cta .btn img {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .cta .btn .btn-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .cta .btn .btn-subtitle {
+    font-size: 12px;
+    opacity: 0.8;
+  }
+  
+  .cta .btn .btn-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .cta .app-store {
+    background: linear-gradient(135deg, #000000, #333333); /* Black Gradient for App Store */
+  }
+  
+  .cta .app-store:hover {
+    background: linear-gradient(135deg, #222222, #444444); /* Lighter Black on Hover */
+  }
+  
+  .cta .play-store {
+    background: linear-gradient(135deg, #34A853, #2C8A45); /* Green Gradient for Play Store */
+  }
+  
+  .cta .play-store:hover {
+    background: linear-gradient(135deg, #3FAE62, #338D4E); /* Lighter Green on Hover */
+  }
+  
+  /* 
+    RESPONSIVE MEDIA QUERIES
+    ------------------------
+    Adjust styles for mobile, tablets, and smaller desktops.
+  */
+  
+  /* 
+    ========== Mobile First Approach ==========
+    Base styles are fairly mobile-friendly, but we still refine further 
+    if screen width is smaller than 768px or 480px, etc.
+  */
+  
+  /* 
+    For tablets and below (max-width: 992px or 768px)
+  */
+  @media (max-width: 992px) {
+    /* Hero */
+    .hero {
+      flex-direction: column;
+      padding: 40px 30px;
+      text-align: center;
+      min-height: auto;
+    }
+  
+    .hero-content {
+      max-width: 100%;
+    }
+  
+    .hero-image {
+      max-width: 100%;
+      margin-top: 20px;
+      text-align: center;
+    }
+  
+    .hero-image img {
+      margin: 0 auto;
+      max-width: 300px;
+      max-height: auto;
+      width: 80%;
+    }
+  
+    /* Details and Features */
+    .details, .features, .how-it-works {
+      padding: 40px 30px;
+    }
+  }
+  
+  /* 
+    For mobile devices (max-width: 768px)
+  */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 20px;
+    }
+  
+    .hero-content h1 {
+      font-size: 28px;
+    }
+  
+    .hero-content p {
+      font-size: 16px;
+    }
+  
+    .hero-buttons .btn,
+    .hero-buttons .btn-secondary {
+      margin: 10px 5px 0 5px;
+      padding: 10px 20px;
+    }
+  
+    /* Carousel */
+    .carousel-item {
+      flex: 0 0 120px;
+    }
+  
+    .carousel-item.center-item {
+      flex: 0 0 180px;
+    }
+  }
+  
+  /* 
+    Extra small devices (max-width: 480px)
+    More adjustments for very small screens
+  */
+  @media (max-width: 480px) {
+    .hero-content h1 {
+      font-size: 24px;
+    }
+  
+    .hero-content p {
+      font-size: 14px;
+    }
+  
+    /* Steps in "How It Works" */
+    .steps li {
+      padding: 15px 10px;
+    }
+  
+    .steps li .step-number {
+      font-size: 24px;
+    }
+  
+    .steps li p {
+      font-size: 14px;
+    }
+  
+    /* App Preview images */
+    .carousel-item {
+      flex: 0 0 100px;
+    }
+  
+    .carousel-item.center-item {
+      flex: 0 0 150px;
+    }
+  }
