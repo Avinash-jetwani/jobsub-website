@@ -219,6 +219,118 @@
     line-height: 20px;
   }
   
+/* Trades Section */
+.trades {
+    padding: 60px 20px;
+    background: #EAE9E9; /* Light background */
+    text-align: center;
+}
+
+.trades .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #0C3273; /* Classy Blue */
+}
+
+.trades .section-description {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    margin-bottom: 30px;
+    color: #666666; /* Subtle gray */
+}
+
+/* Marquee Wrapper */
+.trades-marquee-wrapper {
+    overflow: hidden;
+    position: relative;
+    max-width: 80%; /* Centered marquee within a smaller width */
+    margin: 0 auto; /* Center horizontally */
+}
+
+/* Marquee Container */
+.trades-marquee {
+    display: flex;
+    gap: 40px; /* Space between cards */
+    animation: scroll-left 20s linear infinite; /* Smooth continuous scrolling */
+}
+
+/* Trade Card */
+.trade-card {
+    flex: 0 0 auto;
+    width: 140px; /* Larger card width */
+    text-align: center;
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trade-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.trade-card img {
+    width: 80px; /* Larger icon size */
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.trade-card p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px; /* Larger font size */
+    color: #0C3273; /* Classy Blue */
+}
+
+/* Scrolling Animation */
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%); /* Scroll to the end of the container */
+    }
+}
+
+/* Responsive Design */
+/* For tablets */
+@media (max-width: 992px) {
+    .trade-card {
+        width: 120px;
+    }
+
+    .trade-card img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .trades-marquee-wrapper {
+        max-width: 90%;
+    }
+}
+
+/* For mobile */
+@media (max-width: 768px) {
+    .trade-card {
+        width: 100px;
+    }
+
+    .trade-card img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .trades .section-title {
+        font-size: 24px;
+    }
+
+    .trades .section-description {
+        font-size: 14px;
+    }
+}
   /* 
     HOW JOBSUB WORKS SECTION 
   */

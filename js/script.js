@@ -58,3 +58,14 @@ faqItems.forEach((item) => {
         });
     });
 });
+
+// Trades Section
+const tradesMarquee = document.querySelector('.trades-marquee');
+
+tradesMarquee.addEventListener('mouseenter', () => {
+    tradesMarquee.style.animationPlayState = 'paused';
+});
+
+tradesMarquee.addEventListener('mouseleave', () => {
+    tradesMarquee.style.animationPlayState = 'running';
+});
