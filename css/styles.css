@@ -873,8 +873,8 @@
     color: #666666;
   }
   
-/* Outer container hides horizontally overflowing cards */
-.testimonials-carousel-container {
+  /* Outer container hides horizontally overflowing cards */
+  .testimonials-carousel-container {
     display: flex;
     align-items: center;
     position: relative;
@@ -894,7 +894,7 @@
   }
   
   .testimonials-carousel::-webkit-scrollbar {
-    display: none;            /* Chrome, Safari, Opera */
+    display: none; /* Chrome, Safari, Opera */
   }
   
   /* Testimonial Card */
@@ -963,4 +963,32 @@
   .testimonials-arrow:hover {
     background-color: #004080;
     transform: scale(1.2);
+  }
+
+  /* ========== Tablet (max-width: 992px) ========== */
+@media (max-width: 992px) {
+    .testimonials-carousel-container {
+      padding-top: 20px; /* Slightly reduce top padding */
+    }
+    
+    .testimonial-item {
+      flex: 0 0 250px; /* A bit narrower on tablets */
+    }
+  }
+  
+  /* ========== Mobile (max-width: 768px) ========== */
+  @media (max-width: 768px) {
+    .testimonial-item {
+      flex: 0 0 200px; /* Even narrower on small devices */
+      padding: 16px;   /* Less padding to fit smaller screens */
+    }
+  }
+  
+  /* ========== Extra Small (max-width: 480px) ========== */
+  @media (max-width: 480px) {
+    .testimonial-item {
+      flex: 0 0 100%;  /* Take full width on very small screens */
+      margin: 0 auto;  /* Center it if there's leftover space */
+      max-width: 300px; /* Optional: cap the max width */
+    }
   }
