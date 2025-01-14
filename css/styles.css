@@ -992,3 +992,334 @@
       max-width: 300px; /* Optional: cap the max width */
     }
   }
+
+  /* Contact Us Section */
+.contact-us {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #0C3273, #98C2D8); /* Classy Blue Gradient */
+    color: #FFFFFF;
+    text-align: center;
+  }
+  
+  .contact-us .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .contact-us .section-description {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    margin-bottom: 40px;
+    color: #EAE9E9; /* Light Gray */
+  }
+  
+  .contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Contact Form */
+  .contact-form {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background: #FFFFFF; /* White Background */
+    color: #0C3273; /* Classy Blue */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .contact-form h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .contact-form label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #0C3273;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #98C2D8;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: #0C3273;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .contact-form button {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #98C2D8;
+    color: #0C3273;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-form button:hover {
+    background: #0C3273;
+    color: #FFFFFF;
+  }
+  
+  /* Contact Info */
+  .contact-info {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    text-align: left;
+    animation: slideIn 1s ease-in-out;
+  }
+  
+  .contact-info h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .info-box {
+    background: #FFFFFF;
+    color: #0C3273;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-box h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .info-box p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .info-box a {
+    color: #0C3273;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .info-box a:hover {
+    text-decoration: underline;
+  }
+  
+  .social-links {
+    margin-top: 20px;
+  }
+  
+  .social-links a {
+    color: #FFFFFF;
+    background: #0C3273;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    background: #004080;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .contact-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .contact-form,
+    .contact-info {
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .info-box {
+      padding: 10px;
+    }
+  
+    .info-box h4 {
+      font-size: 16px;
+    }
+  
+    .info-box p {
+      font-size: 13px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .contact-form {
+      padding: 20px;
+    }
+  
+    .info-box {
+      padding: 8px;
+    }
+  
+    .info-box h4 {
+      font-size: 14px;
+    }
+  
+    .info-box p {
+      font-size: 12px;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Footer Section */
+.footer {
+    background-color: #0C3273;
+    color: #EAE9E9;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer h2, .footer h3 {
+    color: #FFD700; /* Gold */
+  }
+  
+  .footer-about {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .footer-about p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .footer-links {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a {
+    color: #EAE9E9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #FFD700; /* Gold */
+  }
+  
+  .footer-contact {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .footer-contact p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-contact a {
+    color: #EAE9E9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-contact a:hover {
+    color: #FFD700; /* Gold */
+  }
+  
+  .footer-bottom {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #FFD700; /* Gold Separator */
+    font-size: 12px;
+    color: #EAE9E9;
+  }
+  
+  .footer-bottom p {
+    margin: 5px 0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .footer-about, .footer-links, .footer-contact {
+      flex: 1;
+      margin-bottom: 20px;
+    }
+  }
