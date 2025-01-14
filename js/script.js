@@ -69,3 +69,63 @@ tradesMarquee.addEventListener('mouseenter', () => {
 tradesMarquee.addEventListener('mouseleave', () => {
     tradesMarquee.style.animationPlayState = 'running';
 });
+
+// Testimonials Carousel Logic
+// Testimonials Carousel Logic
+const testimonialsCarousel = document.querySelector('.testimonials-carousel');
+const testimonialItems = document.querySelectorAll('.testimonial-item');
+const leftTestimonialArrow = document.querySelector('.left-testimonial-arrow');
+const rightTestimonialArrow = document.querySelector('.right-testimonial-arrow');
+
+let testimonialIndex = 0;
+
+function updateTestimonials() {
+  // Calculate how far to slide
+  const itemWidth = testimonialItems[0].offsetWidth + 20; 
+  const offset = testimonialIndex * itemWidth;
+
+  // Move carousel using transform
+  testimonialsCarousel.style.transform = `translateX(-${offset}px)`;
+
+  // If you want to highlight the "active" card:
+  testimonialItems.forEach((item, index) => {
+    item.classList.toggle('active', index === testimonialIndex);
+  });
+}
+
+function moveToNextTestimonial() {
+  testimonialIndex = (testimonialIndex + 1) % testimonialItems.length;
+  updateTestimonials();
+}
+
+function moveToPrevTestimonial() {
+  testimonialIndex = (testimonialIndex - 1 + testimonialItems.length) % testimonialItems.length;
+  updateTestimonials();
+}
+
+// Arrow Event Listeners
+rightTestimonialArrow.addEventListener('click', moveToNextTestimonial);
+leftTestimonialArrow.addEventListener('click', moveToPrevTestimonial);
+
+// Autoplay (Optional)
+let autoplayInterval = setInterval(moveToNextTestimonial, 5000);
+
+// Pause on Hover
+testimonialsCarousel.addEventListener('mouseenter', () => {
+  clearInterval(autoplayInterval);
+});
+testimonialsCarousel.addEventListener('mouseleave', () => {
+  autoplayInterval = setInterval(moveToNextTestimonial, 5000);
+});
+
+// Keyboard Arrow Support
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') {
+    moveToNextTestimonial();
+  } else if (e.key === 'ArrowLeft') {
+    moveToPrevTestimonial();
+  }
+});
+
+// Initialize the carousel
+updateTestimonials();
