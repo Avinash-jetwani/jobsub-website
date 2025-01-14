@@ -129,3 +129,29 @@ document.addEventListener('keydown', (e) => {
 
 // Initialize the carousel
 updateTestimonials();
+
+// Add Smooth Scrolling for Anchor Links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+  
+  // Button Hover Interaction
+  document.querySelectorAll('.btn, .btn-secondary').forEach(button => {
+    button.addEventListener('mouseenter', () => {
+      button.style.transform = 'translateY(-3px)';
+    });
+  
+    button.addEventListener('mouseleave', () => {
+      button.style.transform = 'translateY(0)';
+    });
+  });
+  
+  // Add Lazy Loading for Images
+  document.querySelectorAll('img').forEach(img => {
+    img.setAttribute('loading', 'lazy');
+  });
