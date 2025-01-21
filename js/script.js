@@ -69,65 +69,71 @@ tradesMarquee.addEventListener('mouseleave', () => {
     tradesMarquee.style.animationPlayState = 'running';
 });
 
-// Testimonials Carousel Logic
-// Testimonials Carousel Logic
+
 const testimonialsCarousel = document.querySelector('.testimonials-carousel');
-const testimonialItems = document.querySelectorAll('.testimonial-item');
-const leftTestimonialArrow = document.querySelector('.left-testimonial-arrow');
-const rightTestimonialArrow = document.querySelector('.right-testimonial-arrow');
+const container = document.querySelector('.testimonials-carousel-container');
 
-let testimonialIndex = 0;
+let currentTransform = 0;
+let isHoveringLeft = false;
+let isHoveringRight = false;
+let autoScrollInterval;
 
-function updateTestimonials() {
-  // Calculate how far to slide
-  const itemWidth = testimonialItems[0].offsetWidth + 20; 
-  const offset = testimonialIndex * itemWidth;
-
-  // Move carousel using transform
-  testimonialsCarousel.style.transform = `translateX(-${offset}px)`;
-
-  // If you want to highlight the "active" card:
-  testimonialItems.forEach((item, index) => {
-    item.classList.toggle('active', index === testimonialIndex);
-  });
+// Function to handle auto-scrolling
+function autoScroll() {
+    currentTransform -= 1; // Default left-to-right scrolling
+    if (Math.abs(currentTransform) >= testimonialsCarousel.scrollWidth / 2) {
+        currentTransform = 0; // Reset position for seamless scrolling
+    }
+    testimonialsCarousel.style.transform = `translateX(${currentTransform}px)`;
 }
 
-function moveToNextTestimonial() {
-  testimonialIndex = (testimonialIndex + 1) % testimonialItems.length;
-  updateTestimonials();
+// Start Auto-scrolling
+autoScrollInterval = setInterval(autoScroll, 30);
+
+// Function to handle directional scrolling
+function handleHover(e) {
+    const rect = container.getBoundingClientRect();
+    const hoverArea = rect.width / 4; // Define left and right corners for hover detection
+
+    if (e.clientX < rect.left + hoverArea) {
+        if (!isHoveringLeft) {
+            isHoveringLeft = true;
+            isHoveringRight = false;
+            clearInterval(autoScrollInterval); // Stop auto-scrolling
+            autoScrollInterval = setInterval(() => {
+                currentTransform += 2; // Scroll to the left
+                testimonialsCarousel.style.transform = `translateX(${currentTransform}px)`;
+            }, 20);
+        }
+    } else if (e.clientX > rect.right - hoverArea) {
+        if (!isHoveringRight) {
+            isHoveringRight = true;
+            isHoveringLeft = false;
+            clearInterval(autoScrollInterval); // Stop auto-scrolling
+            autoScrollInterval = setInterval(() => {
+                currentTransform -= 2; // Scroll to the right
+                testimonialsCarousel.style.transform = `translateX(${currentTransform}px)`;
+            }, 20);
+        }
+    } else {
+        // Reset to auto-scroll when user is not hovering near the edges
+        isHoveringLeft = false;
+        isHoveringRight = false;
+        clearInterval(autoScrollInterval);
+        autoScrollInterval = setInterval(autoScroll, 30);
+    }
 }
 
-function moveToPrevTestimonial() {
-  testimonialIndex = (testimonialIndex - 1 + testimonialItems.length) % testimonialItems.length;
-  updateTestimonials();
-}
+// Add Event Listeners for hover
+container.addEventListener('mousemove', handleHover);
 
-// Arrow Event Listeners
-rightTestimonialArrow.addEventListener('click', moveToNextTestimonial);
-leftTestimonialArrow.addEventListener('click', moveToPrevTestimonial);
-
-// Autoplay (Optional)
-let autoplayInterval = setInterval(moveToNextTestimonial, 5000);
-
-// Pause on Hover
-testimonialsCarousel.addEventListener('mouseenter', () => {
-  clearInterval(autoplayInterval);
+// Stop scrolling when the mouse leaves the carousel
+container.addEventListener('mouseleave', () => {
+    isHoveringLeft = false;
+    isHoveringRight = false;
+    clearInterval(autoScrollInterval);
+    autoScrollInterval = setInterval(autoScroll, 30);
 });
-testimonialsCarousel.addEventListener('mouseleave', () => {
-  autoplayInterval = setInterval(moveToNextTestimonial, 5000);
-});
-
-// Keyboard Arrow Support
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight') {
-    moveToNextTestimonial();
-  } else if (e.key === 'ArrowLeft') {
-    moveToPrevTestimonial();
-  }
-});
-
-// Initialize the carousel
-updateTestimonials();
 
 // Add Smooth Scrolling for Anchor Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
