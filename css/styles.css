@@ -1227,106 +1227,300 @@
     }
   }
 
-  /* Footer Section */
+
+/* Footer Section */
 .footer {
-    background-color: #0C3273;
-    color: #EAE9E9;
-    padding: 40px 20px;
+    position: relative;
+    background: #080B10; /* Background color */
+    color: #FFF;
+    padding: 50px 20px;
     text-align: center;
-  }
-  
-  .footer-container {
+    overflow: hidden; /* Ensure content stays inside */
+}
+
+/* Overlay for the background image */
+.footer-overlay {
+    position: relative;
+    z-index: 2; /* Ensure content is above the background */
+}
+
+/* Static Background Image */
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../images/bg-footer-1.png") no-repeat right center; /* Align to the right */
+    background-size: cover; /* Cover entire section */
+    opacity: 0.8; /* Slight transparency for gradient effect */
+    z-index: 1;
+}
+
+/* Footer Top Section */
+.footer-top {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 0 20px; /* Add padding to keep the logo and buttons away from the edges */
+    gap: 20px; /* Add gap between elements */
+}
+
+/* Footer Logo */
+.footer-logo img {
+    max-width: 150px;
+    margin-left: 10px; /* Add some space from the left */
+}
+
+/* Footer Buttons */
+.footer-buttons {
+    display: flex;
+    gap: 20px; /* Increase gap between the buttons */
+    margin-right: 20px; /* Keep some space from the right edge */
+}
+
+/* App Store Button */
+.footer-buttons .app-store {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* For spacing between the logo and text */
+    padding: 10px 20px;
+    border-radius: 10.117px;
+    border: 0.5px solid #FFF;
+    background: #010101;
+    color: #FFF;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.footer-buttons .app-store:hover {
+    background: #FFF;
+    color: #010101;
+}
+
+/* Google Play Button */
+.footer-buttons .play-store {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* For spacing between the logo and text */
+    padding: 10px 20px;
+    border-radius: 10.117px;
+    background: #FFF;
+    color: #000;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.footer-buttons .play-store:hover {
+    background: #010101;
+    color: #FFF;
+}
+
+/* Footer Content Section */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
-    max-width: 1200px;
     margin: 0 auto;
-  }
-  
-  .footer h2, .footer h3 {
-    color: #FFD700; /* Gold */
-  }
-  
-  .footer-about {
+    max-width: 1200px;
+}
+
+/* Footer Section */
+.footer-section {
     flex: 1;
     min-width: 250px;
-  }
-  
-  .footer-about p {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-  
-  .footer-links {
-    flex: 1;
-    min-width: 250px;
-  }
-  
-  .footer-links ul {
+    text-align: center;
+}
+
+.footer-section h3 {
+    font-family: "DM Sans", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-section ul {
     list-style: none;
     padding: 0;
-  }
-  
-  .footer-links li {
-    margin-bottom: 10px;
-  }
-  
-  .footer-links a {
-    color: #EAE9E9;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 15px;
+}
+
+.footer-section ul li a,
+.footer-section p a {
+    color: #CDCCCC;
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
     text-decoration: none;
     transition: color 0.3s ease;
-  }
-  
-  .footer-links a:hover {
-    color: #FFD700; /* Gold */
-  }
-  
-  .footer-contact {
-    flex: 1;
-    min-width: 250px;
-  }
-  
-  .footer-contact p {
+}
+
+.footer-section ul li a:hover,
+.footer-section p a:hover {
+    color: #FFF;
+}
+
+.footer-section p {
+    margin-bottom: 20px;
+}
+
+/* Location Box Styling */
+.location-box {
+    border: 1px solid #FFF; /* White border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Inner padding */
+    margin-bottom: 20px; /* Spacing between boxes */
+    text-align: center; /* Center-align text */
+    line-height: 1.6; /* Improve readability */
+}
+
+/* Responsive Adjustments for Location Box */
+@media (max-width: 768px) {
+    .location-box {
+        max-width: 90%; /* Use 90% of the available width on smaller screens */
+        padding: 15px; /* Reduce padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .location-box {
+        max-width: 100%; /* Use the full width on very small screens */
+        padding: 10px; /* Further reduce padding */
+    }
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 30px;
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background: #878484;
+    margin-bottom: 20px;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px; /* Add spacing between elements */
+}
+
+.footer-info .developed-by {
+    font-family: "DM Sans", sans-serif;
     font-size: 14px;
-    margin-bottom: 10px;
-  }
-  
-  .footer-contact a {
-    color: #EAE9E9;
+    font-weight: 400;
+    color: #CDCCCC; /* Subtle color for non-hover state */
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+
+.footer-info .copyright {
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Social Icons Styling */
+.social-icons {
+    display: flex;
+    gap: 15px; /* Add spacing between social icons */
+    justify-content: center; /* Center-align for consistency */
+}
+
+.social-icons .social-icon {
+    width: 30px; /* Adjust size for icons */
+    height: 30px;
+    display: inline-block;
+    background-color: #FFF; /* Default white background */
+    border-radius: 50%; /* Circle shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .footer-contact a:hover {
-    color: #FFD700; /* Gold */
-  }
-  
-  .footer-bottom {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #FFD700; /* Gold Separator */
-    font-size: 12px;
-    color: #EAE9E9;
-  }
-  
-  .footer-bottom p {
-    margin: 5px 0;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
+    color: #080B10; /* Default color for icons */
+    font-size: 16px; /* Font size for fallback */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-icons .social-icon img {
+    max-width: 16px; /* Adjust the size of icons */
+    height: auto;
+}
+
+.social-icons .social-icon:hover {
+    background-color: #FFD700; /* Gold hover effect */
+    color: #080B10; /* Ensure contrast on hover */
+}
+
+/* Responsive Design */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .footer-container {
-      flex-direction: column;
-      text-align: center;
+        flex-direction: column;
+        align-items: center;
     }
-  
-    .footer-about, .footer-links, .footer-contact {
-      flex: 1;
-      margin-bottom: 20px;
+
+    .footer-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
-  }
+
+    .footer-section h3 {
+        font-size: 18px;
+    }
+
+    .footer-section ul li a,
+    .footer-section p {
+        font-size: 14px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .footer-section h3 {
+        font-size: 16px;
+    }
+
+    .footer-section ul li a,
+    .footer-section p {
+        font-size: 12px;
+    }
+
+    .footer-buttons .btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .location-box {
+        padding: 15px;
+    }
+}
 
   /* General Animations for Section Load */
 section {
