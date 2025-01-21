@@ -73,67 +73,60 @@ tradesMarquee.addEventListener('mouseleave', () => {
 const testimonialsCarousel = document.querySelector('.testimonials-carousel');
 const container = document.querySelector('.testimonials-carousel-container');
 
-let currentTransform = 0;
 let isHoveringLeft = false;
 let isHoveringRight = false;
-let autoScrollInterval;
+let animationFrame;
+let scrollPosition = 0;
 
-// Function to handle auto-scrolling
-function autoScroll() {
-    currentTransform -= 1; // Default left-to-right scrolling
-    if (Math.abs(currentTransform) >= testimonialsCarousel.scrollWidth / 2) {
-        currentTransform = 0; // Reset position for seamless scrolling
-    }
-    testimonialsCarousel.style.transform = `translateX(${currentTransform}px)`;
+// Function to move the carousel smoothly
+function smoothScroll(direction) {
+    scrollPosition += direction === 'right' ? -1.5 : 1.5;
+    testimonialsCarousel.style.transform = `translateX(${scrollPosition}px)`;
+
+    // Restart the animation frame
+    animationFrame = requestAnimationFrame(() => smoothScroll(direction));
 }
 
-// Start Auto-scrolling
-autoScrollInterval = setInterval(autoScroll, 30);
+// Start scrolling in the given direction
+function startScrolling(direction) {
+    stopScrolling(); // Stop any ongoing scrolling
+    animationFrame = requestAnimationFrame(() => smoothScroll(direction));
+}
 
-// Function to handle directional scrolling
-function handleHover(e) {
+// Stop scrolling
+function stopScrolling() {
+    cancelAnimationFrame(animationFrame);
+}
+
+// Event Listeners for mouse movement
+container.addEventListener('mousemove', (e) => {
     const rect = container.getBoundingClientRect();
-    const hoverArea = rect.width / 4; // Define left and right corners for hover detection
+    const hoverArea = rect.width / 4; // Divide the container into hover zones
 
     if (e.clientX < rect.left + hoverArea) {
+        // Hovering on the left
         if (!isHoveringLeft) {
             isHoveringLeft = true;
             isHoveringRight = false;
-            clearInterval(autoScrollInterval); // Stop auto-scrolling
-            autoScrollInterval = setInterval(() => {
-                currentTransform += 2; // Scroll to the left
-                testimonialsCarousel.style.transform = `translateX(${currentTransform}px)`;
-            }, 20);
+            startScrolling('left');
         }
     } else if (e.clientX > rect.right - hoverArea) {
+        // Hovering on the right
         if (!isHoveringRight) {
             isHoveringRight = true;
             isHoveringLeft = false;
-            clearInterval(autoScrollInterval); // Stop auto-scrolling
-            autoScrollInterval = setInterval(() => {
-                currentTransform -= 2; // Scroll to the right
-                testimonialsCarousel.style.transform = `translateX(${currentTransform}px)`;
-            }, 20);
+            startScrolling('right');
         }
     } else {
-        // Reset to auto-scroll when user is not hovering near the edges
+        // Not hovering on edges
         isHoveringLeft = false;
         isHoveringRight = false;
-        clearInterval(autoScrollInterval);
-        autoScrollInterval = setInterval(autoScroll, 30);
+        stopScrolling();
     }
-}
-
-// Add Event Listeners for hover
-container.addEventListener('mousemove', handleHover);
-
-// Stop scrolling when the mouse leaves the carousel
-container.addEventListener('mouseleave', () => {
-    isHoveringLeft = false;
-    isHoveringRight = false;
-    clearInterval(autoScrollInterval);
-    autoScrollInterval = setInterval(autoScroll, 30);
 });
+
+// Stop scrolling when mouse leaves the container
+container.addEventListener('mouseleave', stopScrolling);
 
 // Add Smooth Scrolling for Anchor Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
