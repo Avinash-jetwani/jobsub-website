@@ -52,13 +52,28 @@ html {
 .hero {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Align items to the top */
-  
+  align-items: flex-start;
   padding: 140px 50px 0;
   position: relative;
-  background: url("../images/hero-bg.gif") no-repeat center center;
+  color: #f2f9fe; /* Pearl White */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.18) 0%,
+      rgba(0, 0, 0, 0.18) 100%
+    ),
+    url("../images/hero-bg.gif") no-repeat center center;
   background-size: cover;
-  color: #F2F9FE;
+  z-index: -1;
+  opacity: 1; /* Ensure full visibility */
 }
 
 .hero-content {
