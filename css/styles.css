@@ -395,7 +395,7 @@ html {
   opacity: 0.5;
 }
 
-.section-title {
+.details-title {
   font-family: "DM Sans", sans-serif;
   font-size: 32px;
   font-weight: 700;
@@ -403,7 +403,7 @@ html {
   margin-bottom: 15px;
 }
 
-.section-description {
+.details-description {
   font-family: "DM Sans", sans-serif;
   font-size: 16px;
   color: #CDDDF2;
@@ -416,7 +416,7 @@ html {
   gap: 30px; /* Space between cards */
 }
 
-.details-item {
+.details-card {
   position: relative; /* Allow pseudo-element for background */
   display: flex;
   align-items: center;
@@ -430,8 +430,7 @@ html {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Card Background Image */
-.details-item::before {
+.details-card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -439,22 +438,22 @@ html {
   width: 100%;
   height: 100%;
   background: url("../images/details.png") no-repeat;
-  background-size: auto; /* Maintain original size of the image */
+  background-size: cover; /* Ensures the image covers the entire card */
   z-index: -1; /* Behind the content */
   opacity: 0.5; /* Subtle visibility */
 }
 
 /* Left-corner background for Card 1 */
-.details-item-1::before {
-  background-position: left center; /* Position image to the left */
+.details-card-1::before {
+  background-position: left center; /* Keeps the image focused on the left */
 }
 
 /* Right-corner background for Card 2 */
-.details-item-2::before {
-  background-position: right center; /* Position image to the right */
+.details-card-2::before {
+  background-position: right center; /* Keeps the image focused on the right */
 }
 
-.details-item-image {
+.details-card-image {
   flex: 1; /* More space for the image */
   max-width: 150px; /* Image width */
   height: auto;
@@ -463,11 +462,11 @@ html {
   border-radius: 10px;
 }
 
-.details-item-text {
+.details-card-text {
   flex: 2; /* Reduced content width */
 }
 
-.details-item-text h3 {
+.details-card-text h3 {
   font-family: "DM Sans", sans-serif;
   font-size: 20px;
   font-weight: 700;
@@ -475,7 +474,7 @@ html {
   margin-bottom: 10px;
 }
 
-.details-item-text p {
+.details-card-text p {
   font-family: "DM Sans", sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -484,11 +483,11 @@ html {
 }
 
 /* Reverse layout for the second card */
-.details-item-2 {
+.details-card-2 {
   flex-direction: row-reverse;
 }
 
-.details-item-2 .details-item-image {
+.details-card-2 .details-card-image {
   margin-left: 20px; /* Space between text and image */
   margin-right: 0;
 }
@@ -501,20 +500,20 @@ html {
     padding: 50px 30px;
   }
 
-  .details-item {
+  .details-card {
     padding: 15px;
     height: 200px; /* Adjusted card height for tablets */
   }
 
-  .details-item-image {
+  .details-card-image {
     max-width: 130px; /* Adjusted image size for tablets */
   }
 
-  .details-item-text h3 {
+  .details-card-text h3 {
     font-size: 18px; /* Reduced font size for headings */
   }
 
-  .details-item-text p {
+  .details-card-text p {
     font-size: 13px; /* Reduced paragraph font size */
   }
 }
@@ -525,22 +524,22 @@ html {
     padding: 40px 20px;
   }
 
-  .details-item {
+  .details-card {
     flex-direction: column; /* Stack image and text vertically */
     text-align: center;
     height: auto; /* Allow dynamic height for smaller screens */
   }
 
-  .details-item-image {
+  .details-card-image {
     margin: 0 0 15px 0; /* Space below the image */
     max-width: 120px; /* Adjusted image size for mobile */
   }
 
-  .details-item-text h3 {
+  .details-card-text h3 {
     font-size: 16px; /* Adjusted heading size for mobile */
   }
 
-  .details-item-text p {
+  .details-card-text p {
     font-size: 12px; /* Reduced paragraph size */
   }
 }
@@ -551,19 +550,19 @@ html {
     padding: 30px 15px;
   }
 
-  .details-item {
+  .details-card {
     height: auto; /* Allow dynamic height for very small screens */
   }
 
-  .details-item-image {
+  .details-card-image {
     max-width: 100px; /* Further reduced image size for very small screens */
   }
 
-  .details-item-text h3 {
+  .details-card-text h3 {
     font-size: 14px; /* Further reduced heading size */
   }
 
-  .details-item-text p {
+  .details-card-text p {
     font-size: 11px; /* Further reduced paragraph size */
   }
 }
