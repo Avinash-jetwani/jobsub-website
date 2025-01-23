@@ -73,23 +73,6 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Ensure the GIF covers the entire area */
-  filter: blur(20px); /* Adjust the blur intensity */
-}
-
-.hero-gif::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.18) 0%,
-    rgba(0, 0, 0, 0.18) 100%
-  ); /* Add gradient overlay */
-  z-index: 1; /* Keep the gradient above the GIF */
-  pointer-events: none; /* Ensure it doesn't interfere with interactions */
 }
 
 .hero-content {
