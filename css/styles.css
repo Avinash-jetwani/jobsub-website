@@ -347,7 +347,7 @@ html {
 @media (max-width: 992px) { 
 
     /* Details and Features */
-    .details, .features, .how-it-works {
+    .features, .how-it-works {
       padding: 40px 30px;
     }
 }
@@ -375,63 +375,199 @@ html {
   }
 
 /* */ 
-  /* 
-    DETAILS SECTION 
-  */
+.details {
+  position: relative;
+  padding: 60px 50px;
+  color: #EAE9E9; /* Pearl White */
+  text-align: center;
+  overflow: hidden;
+}
+
+.details::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../images/bg-footer-1.png") no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.section-title {
+  font-family: "DM Sans", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #EAE9E9;
+  margin-bottom: 15px;
+}
+
+.section-description {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  color: #CDDDF2;
+  margin-bottom: 40px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px; /* Space between cards */
+}
+
+.details-item {
+  position: relative; /* Allow pseudo-element for background */
+  display: flex;
+  align-items: center;
+  border-radius: 37px;
+  border: 0.7px solid rgba(255, 255, 255, 0.8);
+  background: rgba(5, 5, 46, 0.25);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  height: 250px; /* Card height */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Card Background Image */
+.details-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../images/details.png") no-repeat;
+  background-size: auto; /* Maintain original size of the image */
+  z-index: -1; /* Behind the content */
+  opacity: 0.5; /* Subtle visibility */
+}
+
+/* Left-corner background for Card 1 */
+.details-item-1::before {
+  background-position: left center; /* Position image to the left */
+}
+
+/* Right-corner background for Card 2 */
+.details-item-2::before {
+  background-position: right center; /* Position image to the right */
+}
+
+.details-item-image {
+  flex: 1; /* More space for the image */
+  max-width: 150px; /* Image width */
+  height: auto;
+  margin-right: 20px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.details-item-text {
+  flex: 2; /* Reduced content width */
+}
+
+.details-item-text h3 {
+  font-family: "DM Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #EAE9E9;
+  margin-bottom: 10px;
+}
+
+.details-item-text p {
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #CDDDF2;
+  line-height: 20px;
+}
+
+/* Reverse layout for the second card */
+.details-item-2 {
+  flex-direction: row-reverse;
+}
+
+.details-item-2 .details-item-image {
+  margin-left: 20px; /* Space between text and image */
+  margin-right: 0;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* For Tablets */
+@media (max-width: 992px) {
   .details {
-    padding: 60px 50px;
-    background-color: #0C3273; /* Classy Blue */
-    color: #EAE9E9; /* Pearl White */
-    text-align: center;
+    padding: 50px 30px;
   }
-  
-  .details .section-title {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 28px; /* Title 2 */
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .details .section-description {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 17px; /* Body */
-    line-height: 22px;
-    letter-spacing: -0.41px;
-    margin-bottom: 40px;
-    color: #98C2D8; /* Skylight Blue */
-  }
-  
-  .details-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-  }
-  
+
   .details-item {
-    background-color: #EAE9E9; /* Pearl White */
-    color: #0C3273; /* Classy Blue */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 15px;
+    height: 200px; /* Adjusted card height for tablets */
   }
-  
-  .details-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+
+  .details-item-image {
+    max-width: 130px; /* Adjusted image size for tablets */
   }
-  
-  .details-item h3 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 20px; /* Title 2 */
-    margin-bottom: 10px;
+
+  .details-item-text h3 {
+    font-size: 18px; /* Reduced font size for headings */
   }
-  
-  .details-item p {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px; /* Body */
-    line-height: 20px;
+
+  .details-item-text p {
+    font-size: 13px; /* Reduced paragraph font size */
   }
+}
+
+/* For Mobile */
+@media (max-width: 768px) {
+  .details {
+    padding: 40px 20px;
+  }
+
+  .details-item {
+    flex-direction: column; /* Stack image and text vertically */
+    text-align: center;
+    height: auto; /* Allow dynamic height for smaller screens */
+  }
+
+  .details-item-image {
+    margin: 0 0 15px 0; /* Space below the image */
+    max-width: 120px; /* Adjusted image size for mobile */
+  }
+
+  .details-item-text h3 {
+    font-size: 16px; /* Adjusted heading size for mobile */
+  }
+
+  .details-item-text p {
+    font-size: 12px; /* Reduced paragraph size */
+  }
+}
+
+/* For Very Small Screens */
+@media (max-width: 480px) {
+  .details {
+    padding: 30px 15px;
+  }
+
+  .details-item {
+    height: auto; /* Allow dynamic height for very small screens */
+  }
+
+  .details-item-image {
+    max-width: 100px; /* Further reduced image size for very small screens */
+  }
+
+  .details-item-text h3 {
+    font-size: 14px; /* Further reduced heading size */
+  }
+
+  .details-item-text p {
+    font-size: 11px; /* Further reduced paragraph size */
+  }
+}
   
   /* 
     FEATURES SECTION 
