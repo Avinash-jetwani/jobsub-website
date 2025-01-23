@@ -633,116 +633,188 @@ html {
   
 /* Trades Section */
 .trades {
-    padding: 60px 20px;
-    background: #EAE9E9; /* Light background */
-    text-align: center;
+  position: relative; /* Allow background image with ::before */
+  padding: 60px 20px;
+  background: transparent; /* No direct background color */
+  text-align: center;
+  overflow: hidden; /* Prevent content overflow */
 }
 
+/* Background Image */
+.trades::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../images/Rectangle-2.png") no-repeat center center / cover, #080B10; /* Image with fallback color */
+  z-index: -1; /* Place behind content */
+  opacity: 0.5; /* Reduce opacity for readability */
+}
+
+/* Section Title */
 .trades .section-title {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #0C3273; /* Classy Blue */
+  font-family: "DM Sans", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #FFF; /* White color */
+  margin-bottom: 15px; /* Spacing below */
+  text-align: center; /* Center align text */
 }
 
+/* Section Description */
 .trades .section-description {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 17px;
-    margin-bottom: 30px;
-    color: #666666; /* Subtle gray */
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px; /* Description font size */
+  margin-bottom: 25px;
+  color: #CDDDF2; /* Subtle gray */
 }
 
-/* Marquee Wrapper */
-.trades-marquee-wrapper {
-    overflow: hidden;
-    position: relative;
-    max-width: 80%; /* Centered marquee within a smaller width */
-    margin: 0 auto; /* Center horizontally */
-}
-
-/* Marquee Container */
+/* Trade Cards */
 .trades-marquee {
-    display: flex;
-    gap: 40px; /* Space between cards */
-    animation: scroll-left 20s linear infinite; /* Smooth continuous scrolling */
+  display: flex;
+  gap: 60px; /* Increased space between cards */
+  animation: scroll-left 20s linear infinite; /* Smooth continuous scrolling */
 }
 
-/* Trade Card */
 .trade-card {
-    flex: 0 0 auto;
-    width: 140px; /* Larger card width */
-    text-align: center;
-    background: #FFFFFF;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 0 0 auto; /* Prevent shrinking or growing */
+  width: 180px; /* Larger card width */
+  text-align: center;
+  border-radius: 20px; /* Less rounded corners */
+  border: 0.7px solid rgba(255, 255, 255, 0.8); /* Subtle white border */
+  background: rgba(5, 5, 46, 0.25); /* Semi-transparent dark background */
+  padding: 20px; /* Increased padding */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
 }
 
 .trade-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px); /* Slight hover animation */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
 
+/* Icon in Trade Card */
 .trade-card img {
-    width: 80px; /* Larger icon size */
-    height: 80px;
-    margin-bottom: 10px;
+  width: 100px; /* Increased icon size */
+  height: 100px;
+  margin-bottom: 10px; /* Space below icon */
+  object-fit: contain; /* Ensure proper scaling of icons */
 }
 
+/* Trade Name */
 .trade-card p {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px; /* Larger font size */
-    color: #0C3273; /* Classy Blue */
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px; /* Set font size */
+  font-style: normal; /* No italic style */
+  font-weight: 400; /* Normal weight */
+  color: #eae9e9ca; /* Pearl White */
+  line-height: normal; /* Default line height */
+  text-align: center; /* Center-align text */
+  margin-top: 10px; /* Optional spacing above text */
 }
 
-/* Scrolling Animation */
+/* Animation Keyframes */
 @keyframes scroll-left {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-100%); /* Scroll to the end of the container */
-    }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%); /* Scroll left */
+  }
 }
 
-/* Responsive Design */
-/* For tablets */
+/* RESPONSIVE DESIGN */
+
+/* For Tablets */
 @media (max-width: 992px) {
-    .trade-card {
-        width: 120px;
-    }
+  .trades {
+    padding: 50px 30px;
+  }
 
-    .trade-card img {
-        width: 70px;
-        height: 70px;
-    }
+  .trade-card {
+    width: 160px; /* Slightly smaller card width */
+    border-radius: 18px; /* Adjusted for tablets */
+  }
 
-    .trades-marquee-wrapper {
-        max-width: 90%;
-    }
+  .trade-card img {
+    width: 90px; /* Adjusted icon size */
+    height: 90px;
+  }
+
+  .trades .section-title {
+    font-size: 26px; /* Adjusted title font for tablets */
+  }
+
+  .trades .section-description {
+    font-size: 13px; /* Adjusted description font for tablets */
+  }
+
+  .trade-card p {
+    font-size: 15px; /* Adjusted trade name font size for tablets */
+  }
 }
 
-/* For mobile */
+/* For Mobile */
 @media (max-width: 768px) {
-    .trade-card {
-        width: 100px;
-    }
+  .trades {
+    padding: 40px 20px;
+  }
 
-    .trade-card img {
-        width: 60px;
-        height: 60px;
-    }
+  .trade-card {
+    width: 140px; /* Smaller card width for mobile */
+    border-radius: 16px; /* Adjusted for mobile */
+  }
 
-    .trades .section-title {
-        font-size: 24px;
-    }
+  .trade-card img {
+    width: 80px; /* Adjusted icon size for mobile */
+    height: 80px;
+  }
 
-    .trades .section-description {
-        font-size: 14px;
-    }
+  .trades .section-title {
+    font-size: 22px; /* Smaller title font for mobile */
+  }
+
+  .trades .section-description {
+    font-size: 12px; /* Smaller description font for mobile */
+  }
+
+  .trade-card p {
+    font-size: 14px; /* Adjusted trade name font size for mobile */
+  }
 }
+
+/* For Very Small Screens */
+@media (max-width: 480px) {
+  .trades {
+    padding: 30px 15px;
+  }
+
+  .trade-card {
+    width: 120px; /* Smaller card width for very small screens */
+    border-radius: 14px; /* Less rounded corners */
+  }
+
+  .trade-card img {
+    width: 70px; /* Smaller icon size for very small screens */
+    height: 70px;
+  }
+
+  .trades .section-title {
+    font-size: 20px; /* Smaller title font for very small screens */
+  }
+
+  .trades .section-description {
+    font-size: 11px; /* Smaller description font for very small screens */
+  }
+
+  .trade-card p {
+    font-size: 13px; /* Reduced trade name font size for very small screens */
+  }
+}
+
+
   /* 
     HOW JOBSUB WORKS SECTION 
   */

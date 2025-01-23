@@ -69,6 +69,7 @@ tradesMarquee.addEventListener('mouseleave', () => {
     tradesMarquee.style.animationPlayState = 'running';
 });
 
+// testimonialsCarousel
 
 const testimonialsCarousel = document.querySelector('.testimonials-carousel');
 const container = document.querySelector('.testimonials-carousel-container');
