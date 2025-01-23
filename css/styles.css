@@ -346,7 +346,7 @@ html {
 @media (max-width: 992px) { 
 
     /* Details and Features */
-    .features, .how-it-works {
+     .how-it-works {
       padding: 40px 30px;
     }
 }
@@ -567,69 +567,159 @@ html {
   }
 }
   
-  /* 
-    FEATURES SECTION 
-  */
+/* FEATURES SECTION */
+.features {
+  position: relative;
+  padding: 60px 50px;
+  background: url("../images/bg-faq-1.png") no-repeat center center / cover, #080B10; /* Image and fallback color */
+  color: #EAE9E9; /* Pearl White */
+  text-align: center;
+  overflow: hidden; /* Ensure content stays inside */
+}
+
+.features .section-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFF;
+  margin-bottom: 15px;
+}
+
+.features .section-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  line-height: 22px;
+  margin-bottom: 40px;
+  color: #98C2D8; /* Skylight Blue */
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three cards per row */
+  gap: 30px; /* Default gap */
+  margin-top: 20px;
+}
+
+.feature-item {
+  background: rgba(255, 255, 255, 0.1); /* Transparent White */
+  border-radius: 15px;
+  padding: 30px; /* Adjusted padding for bigger cards */
+  height: 250px; /* Increased card height */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature-item img {
+  width: 70px;
+  margin-bottom: 20px;
+}
+
+.feature-item h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px; /* Adjusted font size */
+  font-weight: 700;
+  color: #FFF;
+  margin-bottom: 10px;
+}
+
+.feature-item p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #CDDDF2; /* Subtle Blue */
+}
+
+/* RESPONSIVE DESIGN */
+
+/* For Tablets */
+@media (max-width: 992px) {
   .features {
-    padding: 60px 50px;
-    background-color: #EAE9E9; /* Pearl White */
-    color: #0C3273; /* Classy Blue */
-    text-align: center;
+    padding: 50px 30px;
   }
-  
-  .features .section-title {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 28px; /* Title 2 */
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .features .section-subtitle {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 17px; /* Body */
-    line-height: 22px;
-    letter-spacing: -0.41px;
-    margin-bottom: 40px;
-    color: #98C2D8; /* Skylight Blue */
-  }
-  
+
   .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 20px;
+    grid-template-columns: repeat(2, 1fr); /* Two cards per row on tablets */
+    gap: 40px; /* Increased gap for tablets */
   }
-  
+
   .feature-item {
-    background-color: #0C3273; /* Classy Blue */
-    color: #EAE9E9; /* Pearl White */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 200px; /* Adjusted height for tablets */
+    padding: 20px; /* Adjusted padding */
   }
-  
-  .feature-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-  }
-  
+
   .feature-item img {
     width: 60px;
-    margin-bottom: 15px;
   }
-  
+
   .feature-item h3 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 20px; /* Title 2 */
-    margin-bottom: 10px;
+    font-size: 16px; /* Adjusted heading size */
   }
-  
+
   .feature-item p {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px; /* Body */
-    line-height: 20px;
+    font-size: 12px;
   }
+}
+
+/* For Mobile */
+@media (max-width: 768px) {
+  .features {
+    padding: 40px 20px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(1, 1fr); /* Single column for mobile */
+    gap: 50px; /* Increased gap for mobile */
+  }
+
+  .feature-item {
+    height: auto; /* Dynamic height for smaller screens */
+    padding: 15px;
+  }
+
+  .feature-item img {
+    width: 50px;
+  }
+
+  .feature-item h3 {
+    font-size: 16px;
+  }
+
+  .feature-item p {
+    font-size: 12px;
+  }
+}
+
+/* For Very Small Screens */
+@media (max-width: 480px) {
+  .features {
+    padding: 30px 15px;
+  }
+
+  .features-grid {
+    gap: 25px; /* Further increased gap for very small screens */
+  }
+
+  .feature-item {
+    padding: 10px;
+  }
+
+  .feature-item img {
+    width: 40px;
+  }
+
+  .feature-item h3 {
+    font-size: 14px;
+  }
+
+  .feature-item p {
+    font-size: 11px;
+  }
+}
   
 /* Trades Section */
 .trades {
