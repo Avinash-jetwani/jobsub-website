@@ -50,15 +50,33 @@ html {
 
 /* Hero Section */
 .hero {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   padding: 140px 50px 0;
-  position: relative;
   color: #f2f9fe; /* Pearl White */
+  overflow: hidden; /* Prevent overflow issues */
 }
 
-.hero::before {
+.hero-gif {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place it behind all content */
+  overflow: hidden; /* Hide any overflow */
+}
+
+.hero-gif img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the GIF covers the entire area */
+  filter: blur(20px); /* Adjust the blur intensity */
+}
+
+.hero-gif::before {
   content: "";
   position: absolute;
   top: 0;
@@ -66,14 +84,12 @@ html {
   width: 100%;
   height: 100%;
   background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.18) 0%,
-      rgba(0, 0, 0, 0.18) 100%
-    ),
-    url("../images/hero-bg.gif") no-repeat center center;
-  background-size: cover;
-  z-index: -1;
-  opacity: 1; /* Ensure full visibility */
+    0deg,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.18) 100%
+  ); /* Add gradient overlay */
+  z-index: 1; /* Keep the gradient above the GIF */
+  pointer-events: none; /* Ensure it doesn't interfere with interactions */
 }
 
 .hero-content {
