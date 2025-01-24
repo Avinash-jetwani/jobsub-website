@@ -571,10 +571,10 @@ html {
 .features {
   position: relative;
   padding: 60px 50px;
-  background: url("../images/bg-faq-1.png") no-repeat center center / cover, #080B10; /* Image and fallback color */
+  background: url("../images/bg-faq-1.png") no-repeat center center / cover, #080B10; /* Background Image */
   color: #EAE9E9; /* Pearl White */
   text-align: center;
-  overflow: hidden; /* Ensure content stays inside */
+  overflow: hidden;
 }
 
 .features .section-title {
@@ -595,132 +595,170 @@ html {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three cards per row */
-  gap: 30px; /* Default gap */
-  margin-top: 20px;
+  grid-template-columns: repeat(3, 1fr); /* Default to 3 cards per row on desktop */
+  gap: 30px; /* Space between cards */
 }
 
+/* Default Card Layout (Image on the Right) */
 .feature-item {
-  background: rgba(255, 255, 255, 0.1); /* Transparent White */
-  border-radius: 15px;
-  padding: 30px; /* Adjusted padding for bigger cards */
-  height: 250px; /* Increased card height */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent; /* Transparent White */
+  border-radius: 37px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  height: auto; /* Adjust height dynamically */
+  gap: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Card Hover Effect */
 .feature-item:hover {
   transform: translateY(-10px);
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.feature-item img {
-  width: 70px;
-  margin-bottom: 20px;
+/* Alternate Layout for Even Cards (Image on the Left) */
+.feature-item:nth-child(even) {
+  flex-direction: row-reverse; /* Reverse the layout */
 }
 
-.feature-item h3 {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 18px; /* Adjusted font size */
-  font-weight: 700;
-  color: #FFF;
+.feature-left {
+  flex-direction: row; /* Default for left-aligned */
+}
+
+.feature-right {
+  flex-direction: row-reverse; /* Reverse layout for right-aligned */
+}
+
+/* Default Layout (Content on the Left) */
+.feature-text {
+  flex: 1;
+  text-align: left; /* Align text to the left by default */
+  margin: 0 0 0 auto; /* Push content to the left */
+}
+
+/* Alternate Layout for Even Cards (Content on the Right) */
+.feature-item:nth-child(even) .feature-text {
+  text-align: right; /* Align text to the right */
+  margin: 0 auto 0 0; /* Push content to the right */
+}
+
+.feature-item:nth-child(even) .feature-icon {
+  margin: 0 0 10px auto; /* Align icon to the right for even cards */
+}
+
+.feature-item:nth-child(even) h3 {
+  text-align: right; /* Align heading text to the right */
+}
+
+.feature-item:nth-child(even) p {
+  text-align: right; /* Align paragraph text to the right */
+}
+
+.feature-icon {
+  width: 40px; /* Default icon size for desktop */
+  height: auto;
   margin-bottom: 10px;
 }
 
-.feature-item p {
+.feature-text h3 {
   font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px; /* Adjusted heading font size for desktop */
+  font-weight: 700;
+  color: #FFF;
+  margin-bottom: 8px;
+}
+
+.feature-text p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; /* Adjusted normal text font size for desktop */
   line-height: 20px;
   color: #CDDDF2; /* Subtle Blue */
+}
+
+.feature-image {
+  flex: 1;
+  max-width: 150px;
+  border-radius: 10px;
 }
 
 /* RESPONSIVE DESIGN */
 
 /* For Tablets */
 @media (max-width: 992px) {
-  .features {
-    padding: 50px 30px;
-  }
-
   .features-grid {
-    grid-template-columns: repeat(2, 1fr); /* Two cards per row on tablets */
-    gap: 40px; /* Increased gap for tablets */
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on tablets */
   }
 
-  .feature-item {
-    height: 200px; /* Adjusted height for tablets */
-    padding: 20px; /* Adjusted padding */
+  .feature-image {
+    width: 150px; /* Adjust image size */
+  }
+  .feature-icon {
+    width: 35px; /* Slightly smaller icon size for tablets */
   }
 
-  .feature-item img {
-    width: 60px;
+  .feature-text h3 {
+    font-size: 14px; /* Adjusted heading size for tablets */
   }
 
-  .feature-item h3 {
-    font-size: 16px; /* Adjusted heading size */
-  }
-
-  .feature-item p {
-    font-size: 12px;
+  .feature-text p {
+    font-size: 12px; /* Adjusted normal text size for tablets */
+    line-height: 18px; /* Adjusted line height */
   }
 }
 
 /* For Mobile */
 @media (max-width: 768px) {
-  .features {
-    padding: 40px 20px;
-  }
-
   .features-grid {
-    grid-template-columns: repeat(1, 1fr); /* Single column for mobile */
-    gap: 50px; /* Increased gap for mobile */
+    grid-template-columns: repeat(1, 1fr); /* 1 card per row on mobile */
   }
 
   .feature-item {
-    height: auto; /* Dynamic height for smaller screens */
-    padding: 15px;
+    flex-direction: column; /* Stack icon and text vertically */
   }
 
-  .feature-item img {
-    width: 50px;
+  .feature-text {
+    margin-bottom: 15px;
   }
 
-  .feature-item h3 {
-    font-size: 16px;
+  .feature-image {
+    width: 100%; /* Full-width image for mobile */
+    height: auto;
+  }
+  .feature-icon {
+    width: 30px; /* Smaller icon size for mobile */
   }
 
-  .feature-item p {
-    font-size: 12px;
-  }
-}
-
-/* For Very Small Screens */
-@media (max-width: 480px) {
-  .features {
-    padding: 30px 15px;
+  .feature-text h3 {
+    font-size: 13px; /* Smaller heading size for mobile */
   }
 
-  .features-grid {
-    gap: 25px; /* Further increased gap for very small screens */
+  .feature-text p {
+    font-size: 12px; /* Normal text size for mobile */
+    line-height: 16px; /* Reduced line height for mobile */
   }
 
-  .feature-item {
-    padding: 10px;
-  }
-
-  .feature-item img {
-    width: 40px;
-  }
-
-  .feature-item h3 {
-    font-size: 14px;
-  }
-
-  .feature-item p {
-    font-size: 11px;
-  }
 }
   
+/* For Very Small Screens */
+@media (max-width: 480px) {
+  .feature-icon {
+    width: 25px; /* Smallest icon size for very small screens */
+  }
+
+  .feature-text h3 {
+    font-size: 12px; /* Smaller heading size for very small screens */
+  }
+
+  .feature-text p {
+    font-size: 11px; /* Smallest normal text size */
+    line-height: 15px; /* Reduced line height */
+  }
+}
+
 /* Trades Section */
 .trades {
   position: relative; /* Allow background image with ::before */
