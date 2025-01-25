@@ -1073,10 +1073,10 @@ html {
   align-items: center;
   position: relative;
   margin-bottom: 40px;
-  overflow: hidden; /* Prevent overflow issues */
+  overflow: hidden;
   height: 400px; /* Fixed height for the carousel */
 }
-  
+
 /* Carousel Item */
 .carousel-item {
   flex: 0 0 150px; /* Default size for side images */
@@ -1084,8 +1084,8 @@ html {
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0.5; /* Reduce opacity for side images */
   display: flex;
-  justify-content: center; /* Center-align image horizontally */
-  align-items: center; /* Center-align image vertically */
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel-item img {
@@ -1104,7 +1104,7 @@ html {
 }
 
 .carousel-item.center-item img {
-  max-width: 64%; /* Ensure it fits the container width */
+  max-width: 65%; /* Slightly larger width for center image */
   max-height: 100%; /* Ensure it fits the container height */
   object-fit: contain; /* Show the full image without cropping */
 }
@@ -1208,12 +1208,22 @@ html {
 
 /* For Tablets */
 @media (max-width: 992px) {
-  .carousel-item img {
-    max-width: 180px; /* Adjust image size for tablets */
+  .carousel-container {
+    height: 300px; /* Reduce height for tablets */
+  }
+
+  .carousel-item {
+    flex: 0 0 120px; /* Smaller size for side images */
+    transform: scale(0.75); /* Slightly smaller scaling for side images */
   }
 
   .carousel-item.center-item {
     flex: 0 0 250px; /* Adjust center image size for tablets */
+  }
+
+  .carousel-item img {
+    max-width: 80%; /* Scale image for smaller screens */
+    max-height: 100%; /* Scale image height proportionally */
   }
 
   .carousel-arrow {
@@ -1224,12 +1234,23 @@ html {
 
 /* For Mobile */
 @media (max-width: 768px) {
-  .carousel-item img {
-    max-width: 150px; /* Adjust image size for mobile */
+  .carousel-container {
+    height: 250px; /* Reduce height for mobile */
+  }
+
+  .carousel-item {
+    flex: 0 0 100px; /* Smaller size for side images */
+    transform: scale(0.7); /* Smaller scaling for side images */
+    opacity: 0.6; /* Slightly increase opacity */
   }
 
   .carousel-item.center-item {
     flex: 0 0 200px; /* Adjust center image size for mobile */
+  }
+
+  .carousel-item img {
+    max-width: 70%; /* Reduce width for mobile */
+    max-height: 100%; /* Ensure image fits container height */
   }
 
   .carousel-arrow {
@@ -1239,21 +1260,69 @@ html {
 }
 
 /* For Very Small Screens */
+/* For Very Small Screens */
 @media (max-width: 480px) {
-  .carousel-item img {
-    max-width: 120px; /* Smaller size for very small screens */
+  .carousel-container {
+    height: 200px; /* Reduce height for very small screens */
+    display: flex;
+    justify-content: center; /* Center all items */
+    align-items: center;
+    position: relative;
+  }
+
+  .carousel-item {
+    flex: 0 0 114px; /* Reduce size of side images */
+    transform: scale(0.7); /* Shrink side images further */
+    opacity: 0.6; /* Maintain side visibility */
+    margin: 0 2px; /* Reduce the gap between images */
   }
 
   .carousel-item.center-item {
-    flex: 0 0 180px; /* Adjust center image size for very small screens */
+    flex: 0 0 150px; /* Adjust center image size */
+    transform: scale(1); /* Normal scale for center image */
+    opacity: 1; /* Full visibility for center image */
+  }
+
+  .carousel-item.center-item img {
+    max-width: 65%; /* Center image width */
+    max-height: 100%; /* Center image height */
+    object-fit: contain; /* Ensure image fits without cropping */
+  }
+
+  .carousel-item img {
+    max-width: 80%; /* Adjust width for side images */
+    max-height: 90%; /* Adjust height for side images */
+    object-fit: contain; /* Ensure side images are fully visible */
   }
 
   .carousel-arrow {
-    padding: 5px 8px; /* Adjust arrow size for very small screens */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #0C3273;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px; /* Smaller arrow size */
+    border-radius: 50%;
+    cursor: pointer;
     font-size: 14px;
+    z-index: 10;
+    transition: background-color 0.3s ease;
   }
 
+  .carousel-arrow.left-arrow {
+    left: calc(50% - 92px); /* Adjust closer to center image */
+  }
+
+  .carousel-arrow.right-arrow {
+    right: calc(50% - 92px); /* Adjust closer to center image */
+  }
+
+  .carousel-arrow:hover {
+    background-color: #004080;
+  }
 }
+
 
 /* FAQ Section */
 .faq {
