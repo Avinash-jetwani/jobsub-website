@@ -666,10 +666,10 @@ html {
 
 .feature-text h3 {
   font-family: 'DM Sans', sans-serif;
-  font-size: 16px; /* Adjusted heading font size for desktop */
+  font-size: 16px;
   font-weight: 700;
   color: #FFF;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .feature-text p {
