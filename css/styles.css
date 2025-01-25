@@ -1046,10 +1046,12 @@ html {
     APP PREVIEW SECTION 
   */
   .app-preview {
+    position: relative; /* Ensure the section is positioned properly for background */
     padding: 60px 20px;
-    background: linear-gradient(to bottom, #f5f5f5, #ffffff);
+    background: url("../images/app-preview-bg.png") no-repeat center center / cover, #080B10; /* Image with fallback color */
     text-align: center;
-    color: #0c3273;
+    color: #EAE9E9; /* Pearl White for text */
+    overflow: hidden; /* Prevent content overflow */
   }
   
   .app-preview .section-title {
@@ -1057,13 +1059,14 @@ html {
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 10px;
+    color: #EAE9E9;
   }
   
   .app-preview .section-description {
     font-family: 'DM Sans', sans-serif;
     font-size: 17px;
     margin-bottom: 40px;
-    color: #666666;
+    color: #CDDDF2;
   }
   
 /* Carousel Container */
@@ -1114,15 +1117,17 @@ html {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #0C3273;
+    background-color: #05052E;
     color: #FFFFFF;
-    border: none;
+    border: 0.7px solid rgba(255, 255, 255, 0.8);
     padding: 10px 15px;
     border-radius: 50%;
     cursor: pointer;
     font-size: 20px;
     z-index: 10;
     transition: background-color 0.3s ease;
+    fill-opacity: 0.25;
+    stroke: white;
   }
   
   .carousel-arrow.left-arrow {
@@ -1138,70 +1143,119 @@ html {
   }
   
   /* CTA Buttons (Download links) */
+ /* App Preview Buttons */
+.cta {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between the buttons */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* App Store Button */
+.cta .app-store {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Spacing between logo and text */
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 0.5px solid #FFF; /* Border color */
+  background: #010101; /* Dark background for App Store */
+  color: #FFF;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  max-width: 180px; /* Limit button width */
+  width: 100%; /* Full-width for smaller screens */
+}
+
+.cta .app-store:hover {
+  background: #FFF; /* White background on hover */
+  color: #010101; /* Dark text on hover */
+  transform: scale(1.05); /* Slight hover effect */
+}
+
+/* Google Play Button */
+.cta .play-store {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Spacing between logo and text */
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #FFF; /* White background for Google Play */
+  color: #000; /* Black text */
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  max-width: 180px; /* Limit button width */
+  width: 100%; /* Full-width for smaller screens */
+}
+
+.cta .play-store:hover {
+  background: #010101; /* Dark background on hover */
+  color: #FFF; /* White text on hover */
+  transform: scale(1.05); /* Slight hover effect */
+}
+
+/* Icon inside the buttons */
+.cta .btn img {
+  width: 32px; /* Icon size */
+  height: 32px;
+}
+
+/* Text inside the buttons */
+.cta .btn .btn-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.cta .btn .btn-subtitle {
+  font-size: 12px; /* Smaller font for subtitle */
+  opacity: 0.8;
+}
+
+.cta .btn .btn-title {
+  font-size: 18px; /* Larger font for title */
+  font-weight: bold;
+}
+
+/* Responsive Adjustments for CTA Buttons */
+@media (max-width: 992px) {
   .cta {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+      gap: 22px; /* Reduce gap for tablets */
   }
-  
   .cta .btn {
-    display: flex;
-    align-items: center;
-    background: linear-gradient(135deg, #0C3273, #004080); /* Classy Blue Gradient */
-    color: #FFFFFF;
-    text-decoration: none;
-    padding: 12px 25px;
-    border-radius: 12px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    gap: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+      font-size: 14px; /* Reduce font size for tablets */
+      padding: 10px 20px; /* Adjust padding */
   }
-  
-  .cta .btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .cta {
+      gap: 20px; /* Reduce gap further for mobile */
   }
-  
-  .cta .btn img {
-    width: 32px;
-    height: 32px;
+  .cta .btn {
+      font-size: 12px; /* Reduce font size for mobile */
+      padding: 8px 16px; /* Adjust padding */
   }
-  
-  .cta .btn .btn-text {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
+}
+
+@media (max-width: 480px) {
+  .cta {
+      gap: 18px; /* Reduce gap for very small screens */
   }
-  
-  .cta .btn .btn-subtitle {
-    font-size: 12px;
-    opacity: 0.8;
+  .cta .btn {
+      font-size: 10px; /* Smaller font for very small screens */
+      padding: 6px 14px; /* Adjust padding */
   }
-  
-  .cta .btn .btn-title {
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .cta .app-store {
-    background: linear-gradient(135deg, #000000, #333333); /* Black Gradient for App Store */
-  }
-  
-  .cta .app-store:hover {
-    background: linear-gradient(135deg, #222222, #444444); /* Lighter Black on Hover */
-  }
-  
-  .cta .play-store {
-    background: linear-gradient(135deg, #34A853, #2C8A45); /* Green Gradient for Play Store */
-  }
-  
-  .cta .play-store:hover {
-    background: linear-gradient(135deg, #3FAE62, #338D4E); /* Lighter Green on Hover */
-  }
+}
   
 
   /* RESPONSIVE DESIGN */
