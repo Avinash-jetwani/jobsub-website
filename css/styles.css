@@ -600,9 +600,9 @@ html {
 }
 
 /* Alternate Layout for Even Cards (Image on the Left) */
-.feature-item:nth-child(even) {
-  flex-direction: row-reverse; /* Reverse the layout */
-}
+/* .feature-item:nth-child(even) {
+  flex-direction: row-reverse; 
+} */
 
 .feature-left {
   flex-direction: row; /* Default for left-aligned */
@@ -620,22 +620,22 @@ html {
 }
 
 /* Alternate Layout for Even Cards (Content on the Right) */
-.feature-item:nth-child(even) .feature-text {
-  text-align: right; /* Align text to the right */
-  margin: 0 auto 0 0; /* Push content to the right */
+/* .feature-item:nth-child(even) .feature-text {
+  text-align: right; 
+  margin: 0 auto 0 0; 
 }
 
 .feature-item:nth-child(even) .feature-icon {
-  margin: 0 0 10px auto; /* Align icon to the right for even cards */
+  margin: 0 0 10px auto; 
 }
 
 .feature-item:nth-child(even) h3 {
-  text-align: right; /* Align heading text to the right */
+  text-align: right; 
 }
 
 .feature-item:nth-child(even) p {
-  text-align: right; /* Align paragraph text to the right */
-}
+  text-align: right; 
+} */
 
 .feature-icon {
   width: 40px; /* Default icon size for desktop */
@@ -696,7 +696,8 @@ html {
   }
 
   .feature-item {
-    flex-direction: column; /* Stack icon and text vertically */
+    /* Force all cards to stack the same way on mobile */
+    flex-direction: column !important;
   }
 
   .feature-text {
@@ -719,11 +720,30 @@ html {
     font-size: 12px; /* Normal text size for mobile */
     line-height: 16px; /* Reduced line height for mobile */
   }
+  /* Override text alignment for even cards on mobile */
+  .feature-item:nth-child(even) .feature-text,
+  .feature-item:nth-child(even) h3,
+  .feature-item:nth-child(even) p {
+    text-align: center !important;
+    margin: 0 !important;
+  }
 
+  .feature-item:nth-child(odd) .feature-text,
+  .feature-item:nth-child(odd) h3,
+  .feature-item:nth-child(odd) p {
+    text-align: center !important;
+    margin: 0 !important;
+  }
 }
   
 /* For Very Small Screens */
 @media (max-width: 480px) {
+
+  .feature-item {
+    /* Force all cards to stack the same way on mobile */
+    flex-direction: column !important;
+  }
+
   .feature-icon {
     width: 25px; /* Smallest icon size for very small screens */
   }
@@ -736,6 +756,19 @@ html {
     font-size: 11px; /* Smallest normal text size */
     line-height: 15px; /* Reduced line height */
   }
+    /* Override text alignment for even cards on mobile */
+    .feature-item:nth-child(even) .feature-text,
+    .feature-item:nth-child(even) h3,
+    .feature-item:nth-child(even) p {
+      text-align: center !important;
+      margin: 0 !important;
+    }
+    .feature-item:nth-child(odd) .feature-text,
+    .feature-item:nth-child(odd) h3,
+    .feature-item:nth-child(odd) p {
+      text-align: center !important;
+      margin: 0 !important;
+    }
 }
 
 /* Trades Section */
