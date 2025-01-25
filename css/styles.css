@@ -351,27 +351,6 @@ html {
     }
 }
 
-  @media (max-width: 768px) {
-    /* Carousel */
-    .carousel-item {
-      flex: 0 0 120px;
-    }
-  
-    .carousel-item.center-item {
-      flex: 0 0 180px;
-    }
-}
-
-  @media (max-width: 480px) {
-    /* App Preview images */
-    .carousel-item {
-      flex: 0 0 100px;
-    }
-  
-    .carousel-item.center-item {
-      flex: 0 0 150px;
-    }
-  }
 
 /* */ 
 .details {
@@ -1087,42 +1066,48 @@ html {
     color: #666666;
   }
   
-  /* Carousel Container */
-  .carousel-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin-bottom: 40px;
-  }
+/* Carousel Container */
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 40px;
+  overflow: hidden; /* Prevent overflow issues */
+  height: 400px; /* Fixed height for the carousel */
+}
   
-  /* We'll use a flexible approach for the carousel */
-  .carousel {
-    display: flex;
-    gap: 20px;
-    position: relative;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  /* Carousel Item */
-  .carousel-item {
-    flex: 0 0 150px; /* Default size for side images */
-    transform: scale(0.8);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    opacity: 0.5;
-  }
-  
-  .carousel-item.center-item {
-    flex: 0 0 250px; /* Larger size for center image */
-    transform: scale(1.1);
-    opacity: 1;
-    z-index: 2;
-  }
-  
-  .carousel-item {
-    position: relative;
-    order: 0; /* Default order */
-  }
+/* Carousel Item */
+.carousel-item {
+  flex: 0 0 150px; /* Default size for side images */
+  transform: scale(0.8); /* Shrink side images */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.5; /* Reduce opacity for side images */
+  display: flex;
+  justify-content: center; /* Center-align image horizontally */
+  align-items: center; /* Center-align image vertically */
+}
+
+.carousel-item img {
+  max-width: 100%; /* Scale image to fit within the container width */
+  max-height: 100%; /* Scale image to fit within the container height */
+  object-fit: contain; /* Ensure the full image is displayed without cropping */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Center Image Styling */
+.carousel-item.center-item {
+  flex: 0 0 300px; /* Larger size for center image */
+  transform: scale(1); /* No scaling for the center image */
+  opacity: 1; /* Full opacity for the center image */
+  z-index: 2; /* Bring the center image to the front */
+}
+
+.carousel-item.center-item img {
+  max-width: 64%; /* Ensure it fits the container width */
+  max-height: 100%; /* Ensure it fits the container height */
+  object-fit: contain; /* Show the full image without cropping */
+}
   
   /* Carousel Arrows */
   .carousel-arrow {
@@ -1141,11 +1126,11 @@ html {
   }
   
   .carousel-arrow.left-arrow {
-    left: calc(50% - 135px); /* Adjust closer to the center image */
+    left: calc(50% - 150px); /* Adjust closer to the center image */
   }
   
   .carousel-arrow.right-arrow {
-    right: calc(50% - 135px); /* Adjust closer to the center image */
+    right: calc(50% - 150px); /* Adjust closer to the center image */
   }
   
   .carousel-arrow:hover {
@@ -1218,6 +1203,58 @@ html {
     background: linear-gradient(135deg, #3FAE62, #338D4E); /* Lighter Green on Hover */
   }
   
+
+  /* RESPONSIVE DESIGN */
+
+/* For Tablets */
+@media (max-width: 992px) {
+  .carousel-item img {
+    max-width: 180px; /* Adjust image size for tablets */
+  }
+
+  .carousel-item.center-item {
+    flex: 0 0 250px; /* Adjust center image size for tablets */
+  }
+
+  .carousel-arrow {
+    padding: 8px 12px; /* Adjust arrow size for tablets */
+    font-size: 18px;
+  }
+}
+
+/* For Mobile */
+@media (max-width: 768px) {
+  .carousel-item img {
+    max-width: 150px; /* Adjust image size for mobile */
+  }
+
+  .carousel-item.center-item {
+    flex: 0 0 200px; /* Adjust center image size for mobile */
+  }
+
+  .carousel-arrow {
+    padding: 6px 10px; /* Adjust arrow size for mobile */
+    font-size: 16px;
+  }
+}
+
+/* For Very Small Screens */
+@media (max-width: 480px) {
+  .carousel-item img {
+    max-width: 120px; /* Smaller size for very small screens */
+  }
+
+  .carousel-item.center-item {
+    flex: 0 0 180px; /* Adjust center image size for very small screens */
+  }
+
+  .carousel-arrow {
+    padding: 5px 8px; /* Adjust arrow size for very small screens */
+    font-size: 14px;
+  }
+
+}
+
 /* FAQ Section */
 .faq {
     position: relative;
