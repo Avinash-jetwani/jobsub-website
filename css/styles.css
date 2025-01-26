@@ -1035,7 +1035,7 @@ html {
     .timeline-item {
       position: relative;
       width: 50%;
-      padding: 20px;
+      padding: 0px;
     }
 
     .timeline-item.left {
@@ -1124,65 +1124,40 @@ html {
       left: 0px;
     }
 
-    /* Responsive for <= 768px */
+    /* 
+       OPTIONAL: We keep the toggle buttons sizing slightly smaller 
+       on smaller devices, but we do NOT force the timeline items 
+       into a center single-column. 
+    */
     @media (max-width: 768px) {
       .toggle-buttons {
-        flex-direction: row;
-        justify-content: center;
         gap: 10px;
       }
-
       .toggle-btn {
         font-size: 14px;
         padding: 8px 16px;
       }
-
-      .timeline {
-        padding: 0 10px;
-      }
     }
 
-    /* Responsive for <= 480px */
+    /* 
+       OPTIONAL: Further reduce button sizes on very small screens 
+       WITHOUT forcing timeline items into center alignment. 
+    */
     @media (max-width: 480px) {
       .toggle-buttons {
-        flex-direction: row;
-        justify-content: center;
         gap: 8px;
       }
-
       .toggle-btn {
         font-size: 13px;
         padding: 6px 12px;
       }
-
-      .timeline-item {
-        width: 100%;
-        text-align: center;
-        padding-left: 0;
-        padding-right: 0;
-      }
-
-      .timeline-item.left,
-      .timeline-item.right {
-        left: 0;
-      }
-
-      .timeline-item .timeline-content {
-        text-align: center;
-        margin: 15px auto;
-        padding: 15px;
-      }
-
-      .timeline:before {
-        left: 50%;
-      }
-
-      .timeline-item .timeline-icon {
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
     }
 
+    /* 
+       NOTE: We have removed the code that originally set 
+       .timeline-item width:100% on small screens, forcing 
+       them into a single column. Now they remain left-right.
+    */
 
   /* 
     APP PREVIEW SECTION 

@@ -156,27 +156,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 
   // how it works section
-  document.addEventListener('DOMContentLoaded', function () {
-    var toggleBtns = document.querySelectorAll('.toggle-btn');
-    var timelines = document.querySelectorAll('.timeline');
+    // Wait until DOM is ready
+    document.addEventListener('DOMContentLoaded', function () {
+      var toggleBtns = document.querySelectorAll('.toggle-btn');
+      var timelines = document.querySelectorAll('.timeline');
 
-    toggleBtns.forEach(function(button) {
-      button.addEventListener('click', function() {
-        // Remove 'active' from all buttons
-        toggleBtns.forEach(function(btn) {
-          btn.classList.remove('active');
+      toggleBtns.forEach(function(button) {
+        button.addEventListener('click', function() {
+          // Remove 'active' from all buttons
+          toggleBtns.forEach(function(btn) {
+            btn.classList.remove('active');
+          });
+          // Add 'active' to the clicked button
+          this.classList.add('active');
+
+          // Hide all timelines
+          timelines.forEach(function(timeline) {
+            timeline.classList.remove('active');
+          });
+
+          // Show the targeted timeline
+          var target = this.getAttribute('data-target');
+          document.getElementById(target).classList.add('active');
         });
-        // Add 'active' to the clicked button
-        this.classList.add('active');
-
-        // Hide all timelines
-        timelines.forEach(function(timeline) {
-          timeline.classList.remove('active');
-        });
-
-        // Show the targeted timeline
-        var target = this.getAttribute('data-target');
-        document.getElementById(target).classList.add('active');
       });
     });
-  });
