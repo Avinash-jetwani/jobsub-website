@@ -1012,8 +1012,6 @@ html {
   display: none;
   position: relative;
   margin: 40px 0;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 .timeline.active {
@@ -1027,7 +1025,7 @@ html {
   left: 50%;
   width: 2px;
   height: 100%;
-  background: rgba(255, 255, 255, 0.3); /* Line color */
+  background: rgba(255, 255, 255, 0.3);
   transform: translateX(-50%);
 }
 
@@ -1049,12 +1047,44 @@ html {
 }
 
 .timeline-item .timeline-content {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 15px 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  padding: 20px 30px;
+  border-radius: 15px;
+  text-align: left;
+  z-index: 1;
 }
 
+.timeline-item.left .timeline-content,
+.timeline-item.right .timeline-content {
+  background: transparent;
+  color: #EAE9E9;
+}
+
+.timeline-item.left .timeline-content::before {
+  content: "";
+  position: absolute;
+  top: 68px;
+  left: 14%;
+  width: 563px;
+  height: 366px;
+  background: radial-gradient(circle, rgba(36, 78, 195, 0.4), transparent 60%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: -1;
+}
+.timeline-item.right .timeline-content::before {
+  content: "";
+  position: absolute;
+  top: 71px;
+  left: 31%;
+  width: 563px;
+  height: 366px;
+  background: radial-gradient(circle, rgba(36, 78, 195, 0.4), transparent 60%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: -1;
+}
+/* Step Number */
 .timeline-item .step-number {
   font-size: 14px;
   color: #98C2D8;
@@ -1062,32 +1092,33 @@ html {
 }
 
 .timeline-item h3 {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
   color: #FFF;
   margin-bottom: 10px;
 }
 
 .timeline-item p {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
   color: #CDDDF2;
 }
 
+/* Timeline Icon */
 .timeline-item .timeline-icon {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 20px;
   height: 20px;
-  background: #ffffff; /* Gold */
+  background: #FFFFFF;
   border: 3px solid #080B10;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
 }
 
-/* Adjust Positions for Left and Right Items */
+/* Adjustments for Left and Right */
 .timeline-item.left .timeline-icon {
   left: calc(100% + 0px);
 }
@@ -1108,6 +1139,10 @@ html {
   .timeline-item.left,
   .timeline-item.right {
     left: 0;
+  }
+
+  .timeline-item .timeline-content {
+    text-align: center;
   }
 
   .timeline-item .timeline-icon {
