@@ -154,3 +154,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   document.querySelectorAll('img').forEach(img => {
     img.setAttribute('loading', 'lazy');
   });
+
+  // how it works section
+  document.querySelectorAll('.toggle-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons
+      document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+      // Add active class to the clicked button
+      button.classList.add('active');
+  
+      // Hide all timelines
+      document.querySelectorAll('.timeline').forEach(timeline => timeline.classList.remove('active'));
+      // Show the targeted timeline
+      const target = button.getAttribute('data-target');
+      document.getElementById(target).classList.add('active');
+    });
+  });

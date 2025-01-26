@@ -955,125 +955,170 @@ html {
 }
 
 
-  /* 
-    HOW JOBSUB WORKS SECTION 
-  */
-  .how-it-works {
-    padding: 60px 50px;
-    background-color: #EAE9E9; /* Pearl White */
-    text-align: center;
-  }
-  
-  .how-it-works .section-title {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 28px; /* Title 2 */
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #0C3273;
-  }
-  
-  .how-it-works .section-description {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 17px;
-    margin-bottom: 40px;
-    color: #0C3273;
-  }
-  
-  .how-it-works-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center; /* For better alignment on narrower screens */
-  }
-  
-  /* Leads and Live Jobs Container */
-  .how-it-works-leads,
-  .how-it-works-live-jobs {
-    flex: 1;
-    min-width: 300px;
-    padding: 30px;
-    border-radius: 10px;
-    color: #EAE9E9; /* Pearl White */
-    background: linear-gradient(135deg, #0C3273, #98C2D8); /* Gradient */
-  }
-  
-  /* Steps Container */
-  .steps {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  /* Step Card */
-  .steps li {
-    position: relative;
-    background-color: #0C3273; /* Classy Blue */
-    padding: 20px 15px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    overflow: hidden;
-  }
-  
-  .steps li:hover {
-    transform: translateY(-10px);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(135deg, #98C2D8, #0C3273); /* Skylight Blue to Classy Blue */
-  }
-  
-  /* Gradient Top Line */
-  .steps li::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
+/* HOW JOBSUB WORKS SECTION */
+.how-it-works {
+  padding: 60px 50px;
+  background: #080B10;
+  color: #EAE9E9;
+  text-align: center;
+}
+
+.how-it-works .section-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #EAE9E9;
+}
+
+.how-it-works .section-description {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  margin-bottom: 40px;
+  color: #EAE9E9;
+}
+
+/* Toggle Buttons */
+.toggle-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.toggle-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: 1px solid #EAE9E9;
+  background: transparent;
+  color: #EAE9E9;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.toggle-btn.active {
+  background: #0C3273;
+  color: #FFFFFF;
+}
+
+.toggle-btn:hover {
+  background: #0C3273;
+  color: #FFFFFF;
+}
+
+/* Timeline Styling */
+.timeline {
+  display: none;
+  position: relative;
+  margin: 40px 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.timeline.active {
+  display: block;
+}
+
+.timeline:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3); /* Line color */
+  transform: translateX(-50%);
+}
+
+/* Timeline Item */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+}
+
+.timeline-item.left {
+  text-align: right;
+  left: 0;
+}
+
+.timeline-item.right {
+  text-align: left;
+  left: 50%;
+}
+
+.timeline-item .timeline-content {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-item .step-number {
+  font-size: 14px;
+  color: #98C2D8;
+  margin-bottom: 10px;
+}
+
+.timeline-item h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFF;
+  margin-bottom: 10px;
+}
+
+.timeline-item p {
+  font-size: 14px;
+  line-height: 20px;
+  color: #CDDDF2;
+}
+
+.timeline-item .timeline-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: #ffffff; /* Gold */
+  border: 3px solid #080B10;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+/* Adjust Positions for Left and Right Items */
+.timeline-item.left .timeline-icon {
+  left: calc(100% + 0px);
+}
+
+.timeline-item.right .timeline-icon {
+  left: 0px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timeline-item {
     width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, #FFC107, #FFD700); /* Golden gradient */
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
   }
-  
-  /* Step Number */
-  .steps li .step-number {
-    font-size: 30px;
-    font-weight: bold;
-    color: #FFD700; /* Gold */
-    margin-bottom: 10px;
-    transition: transform 0.3s ease;
+
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
   }
-  
-  .steps li:hover .step-number {
-    transform: scale(1.2);
+
+  .timeline-item .timeline-icon {
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
-  
-  /* Step Icon */
-  .steps li img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease;
+
+  .timeline:before {
+    left: 50%;
   }
-  
-  .steps li:hover img {
-    transform: rotate(10deg);
-  }
-  
-  /* Step Text */
-  .steps li p {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #EAE9E9; /* Pearl White */
-    transition: color 0.3s ease;
-  }
-  
-  .steps li:hover p {
-    color: #FFF; /* Bright white for hover effect */
-  }
+}
   
   /* 
     APP PREVIEW SECTION 
