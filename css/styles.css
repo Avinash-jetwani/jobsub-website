@@ -946,16 +946,16 @@ html {
 }
 
 
-    /* HOW JOBSUB WORKS SECTION */
+    /* HOW JOBSUB WORKS SECTION STYLES */
     .how-it-works {
       padding: 60px 50px;
       background: #080B10;
       color: #EAE9E9;
       text-align: center;
-      position: relative; /* For stacking context */
+      position: relative;
     }
 
-    .how-it-works .section-title {
+    .section-title {
       font-family: 'DM Sans', sans-serif;
       font-size: 28px;
       font-weight: bold;
@@ -963,28 +963,22 @@ html {
       color: #EAE9E9;
     }
 
-    .how-it-works .section-description {
+    .section-description {
       font-family: 'DM Sans', sans-serif;
       font-size: 17px;
       margin-bottom: 40px;
       color: #EAE9E9;
     }
 
-    /* Toggle Buttons */
     .toggle-buttons {
       display: flex;
-      justify-content: center; /* Center the buttons */
-      align-items: center;     /* Vertically align the buttons */
-      gap: 15px;               /* Space between buttons */
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
       margin-bottom: 30px;
-      flex-wrap: nowrap;       /* Prevent wrapping */
-
-      /* Ensure buttons stay above the timeline pseudo-elements */
       position: relative;
       z-index: 2;
     }
-
-    /* Buttons Styling */
     .toggle-btn {
       padding: 10px 20px;
       font-size: 16px;
@@ -995,24 +989,17 @@ html {
       cursor: pointer;
       transition: background 0.3s ease, color 0.3s ease;
     }
-
-    .toggle-btn.active {
-      background: #0C3273;
-      color: #FFFFFF;
-    }
-
+    .toggle-btn.active,
     .toggle-btn:hover {
       background: #0C3273;
       color: #FFFFFF;
     }
 
-    /* Timeline Styling */
     .timeline {
       display: none;
       position: relative;
       margin: 40px 0;
     }
-
     .timeline.active {
       display: block;
     }
@@ -1026,12 +1013,10 @@ html {
       height: 100%;
       background: rgba(255, 255, 255, 0.3);
       transform: translateX(-50%);
-      /* Prevent blocking clicks */
       pointer-events: none;
       z-index: 0;
     }
 
-    /* Timeline Item */
     .timeline-item {
       position: relative;
       width: 50%;
@@ -1042,21 +1027,19 @@ html {
       text-align: right;
       left: 0;
     }
-
     .timeline-item.right {
       text-align: left;
       left: 50%;
     }
 
-    .timeline-item .timeline-content {
+    .timeline-content {
       position: relative;
       padding: 20px 30px;
       border-radius: 15px;
       text-align: left;
-      z-index: 1; /* Above the line */
+      z-index: 1;
     }
 
-    /* Radial background highlights */
     .timeline-item.left .timeline-content::before,
     .timeline-item.right .timeline-content::before {
       content: "";
@@ -1066,11 +1049,8 @@ html {
       background: radial-gradient(circle, rgba(36, 78, 195, 0.4), transparent 60%);
       border-radius: 50%;
       z-index: -1;
-      /* Prevent blocking clicks */
       pointer-events: none;
     }
-
-    /* Slightly different positions for left/right */
     .timeline-item.left .timeline-content::before {
       top: 68px;
       left: 14%;
@@ -1082,28 +1062,23 @@ html {
       transform: translate(-50%, -50%);
     }
 
-    /* Step Number */
-    .timeline-item .step-number {
+    .step-number {
       font-size: 14px;
       color: #98C2D8;
       margin-bottom: 10px;
     }
-
     .timeline-item h3 {
       font-size: 24px;
       font-weight: bold;
       color: #FFF;
       margin-bottom: 10px;
     }
-
     .timeline-item p {
       font-size: 16px;
       line-height: 24px;
       color: #CDDDF2;
     }
-
-    /* Timeline Icon */
-    .timeline-item .timeline-icon {
+    .timeline-icon {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -1115,8 +1090,6 @@ html {
       transform: translate(-50%, -50%);
       z-index: 2;
     }
-
-    /* Adjustments for Left and Right */
     .timeline-item.left .timeline-icon {
       left: calc(100% + 0px);
     }
@@ -1124,11 +1097,6 @@ html {
       left: 0px;
     }
 
-    /* 
-       OPTIONAL: We keep the toggle buttons sizing slightly smaller 
-       on smaller devices, but we do NOT force the timeline items 
-       into a center single-column. 
-    */
     @media (max-width: 768px) {
       .toggle-buttons {
         gap: 10px;
@@ -1138,11 +1106,6 @@ html {
         padding: 8px 16px;
       }
     }
-
-    /* 
-       OPTIONAL: Further reduce button sizes on very small screens 
-       WITHOUT forcing timeline items into center alignment. 
-    */
     @media (max-width: 480px) {
       .toggle-buttons {
         gap: 8px;
