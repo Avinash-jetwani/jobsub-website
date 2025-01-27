@@ -489,6 +489,7 @@ html {
 }
 
 /* For Mobile */
+/* For Mobile */
 @media (max-width: 768px) {
   .details {
     padding: 40px 20px;
@@ -497,20 +498,28 @@ html {
   .details-card {
     flex-direction: column; /* Stack image and text vertically */
     text-align: center;
+    align-items: center; /* Ensure content is centered */
     height: auto; /* Allow dynamic height for smaller screens */
+    padding: 20px; /* Add consistent padding */
   }
 
   .details-card-image {
-    margin: 0 0 15px 0; /* Space below the image */
+    margin: 0 auto 15px auto; /* Center image and add spacing below */
     max-width: 120px; /* Adjusted image size for mobile */
+  }
+
+  .details-card-text {
+    margin: 0; /* Remove any default margin */
   }
 
   .details-card-text h3 {
     font-size: 16px; /* Adjusted heading size for mobile */
+    margin-bottom: 8px; /* Add spacing below heading */
   }
 
   .details-card-text p {
     font-size: 12px; /* Reduced paragraph size */
+    margin-bottom: 10px; /* Add spacing below paragraph */
   }
 }
 
@@ -521,19 +530,30 @@ html {
   }
 
   .details-card {
-    height: auto; /* Allow dynamic height for very small screens */
+    flex-direction: column; /* Stack content vertically */
+    text-align: center;
+    align-items: center;
+    height: auto; /* Allow dynamic height */
+    padding: 15px; /* Adjust padding for small screens */
   }
 
   .details-card-image {
     max-width: 100px; /* Further reduced image size for very small screens */
+    margin: 0 auto 10px auto; /* Center image and adjust spacing */
+  }
+
+  .details-card-text {
+    margin: 0; /* Remove any default margin */
   }
 
   .details-card-text h3 {
     font-size: 14px; /* Further reduced heading size */
+    margin-bottom: 5px; /* Add spacing below heading */
   }
 
   .details-card-text p {
     font-size: 11px; /* Further reduced paragraph size */
+    margin-bottom: 8px; /* Add spacing below paragraph */
   }
 }
   
@@ -1070,7 +1090,7 @@ html {
     .timeline-content ul li {
       margin-bottom: 10px; /* Adjust the value as needed */
     }
-    
+
     .timeline-item h3 {
       font-size: 24px;
       font-weight: bold;
