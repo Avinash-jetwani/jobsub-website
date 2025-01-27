@@ -343,12 +343,13 @@ html {
 }
 
 
-/* */ 
+/* ========== SECTION: DETAILS ========== */
+
 .details {
   position: relative;
   padding: 60px 50px;
-  color: #EAE9E9; /* Pearl White */
   text-align: center;
+  color: #EAE9E9; /* Pearl White */
   overflow: hidden;
 }
 
@@ -380,14 +381,16 @@ html {
   margin-bottom: 40px;
 }
 
+/* ========== GRID LAYOUT ========== */
 .details-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px; /* Space between cards */
 }
 
+/* ========== CARD COMMON STYLES ========== */
 .details-card {
-  position: relative; /* Allow pseudo-element for background */
+  position: relative; /* for pseudo-element backgrounds if needed */
   display: flex;
   align-items: center;
   border-radius: 37px;
@@ -395,37 +398,27 @@ html {
   background: rgba(5, 5, 46, 0.25);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  /* Removed fixed heights so the card fits its content */
+  /* No fixed height — let content define height */
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* If you want a subtle background image inside each card, uncomment/adjust:
 .details-card::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: url("../images/details.png") no-repeat;
-  background-size: cover; /* Ensures the image covers the entire card */
-  z-index: -1; /* Behind the content */
-  opacity: 0.5; /* Subtle visibility */
+  background-size: cover;
+  z-index: -1;
+  opacity: 0.5;
 }
-
-/* Left-corner background for Card 1 */
-.details-card-1::before {
-  background-position: left center; /* Keeps the image focused on the left */
-}
-
-/* Right-corner background for Card 2 */
-.details-card-2::before {
-  background-position: right center; /* Keeps the image focused on the right */
-}
+*/
 
 .details-card-image {
-  flex: 1; /* More space for the image */
-  max-width: 150px; /* Image width */
+  flex: 0 0 auto;
+  max-width: 150px; /* image size */
   height: auto;
   margin-right: 20px;
   object-fit: cover;
@@ -433,7 +426,8 @@ html {
 }
 
 .details-card-text {
-  flex: 2; /* Reduced content width */
+  flex: 1;
+  text-align: left; /* aligns text to the left if you want; or keep center */
 }
 
 .details-card-text h3 {
@@ -441,7 +435,7 @@ html {
   font-size: 20px;
   font-weight: 700;
   color: #EAE9E9;
-  margin-bottom: 10px;
+  margin: 0 0 10px; /* top 0, bottom 10px */
 }
 
 .details-card-text p {
@@ -450,109 +444,76 @@ html {
   font-weight: 400;
   color: #CDDDF2;
   line-height: 20px;
+  margin: 0; /* remove default p margin to reduce blank space */
 }
 
-/* Reverse layout for the second card */
-.details-card-2 {
-  flex-direction: row-reverse;
-}
-
-.details-card-2 .details-card-image {
-  margin-left: 20px; /* Space between text and image */
-  margin-right: 0;
-}
-
-/* RESPONSIVE DESIGN */
-
-/* For Tablets */
+/* ========== RESPONSIVE BREAKPOINTS ========== */
+/* Tablets (<= 992px) */
 @media (max-width: 992px) {
   .details {
     padding: 50px 30px;
   }
-
   .details-card {
     padding: 15px;
-    /* Removed height: 200px */
   }
-
   .details-card-image {
-    max-width: 130px; /* Adjusted image size for tablets */
+    max-width: 130px;
+    margin-right: 15px;
   }
-
   .details-card-text h3 {
-    font-size: 18px; /* Reduced font size for headings */
+    font-size: 18px;
+    margin-bottom: 8px;
   }
-
   .details-card-text p {
-    font-size: 13px; /* Reduced paragraph font size */
+    font-size: 13px;
   }
 }
 
-/* For Mobile */
+/* Mobile (<= 768px) */
 @media (max-width: 768px) {
   .details {
     padding: 40px 20px;
   }
-
   .details-card {
-    flex-direction: column; /* Stack image and text vertically */
+    flex-direction: column; /* Stack image & text vertically */
     text-align: center;
-    align-items: center; /* Ensure content is centered */
-    /* height is already auto */
-    padding: 20px; /* Add consistent padding */
+    align-items: center;    /* Center the items horizontally */
+    padding: 20px;
   }
-
   .details-card-image {
-    margin: 0 auto 15px auto; /* Center image and add spacing below */
-    max-width: 120px; /* Adjusted image size for mobile */
+    margin: 0 auto 15px auto; /* center image, space below it */
+    max-width: 120px;
   }
-
   .details-card-text {
-    margin: 0; /* Remove any default margin */
+    text-align: center;
   }
-
   .details-card-text h3 {
-    font-size: 16px; /* Adjusted heading size for mobile */
-    margin-bottom: 8px; /* Add spacing below heading */
+    font-size: 16px;
+    margin-bottom: 8px;
   }
-
   .details-card-text p {
-    font-size: 12px; /* Reduced paragraph size */
-    margin-bottom: 10px; /* Add spacing below paragraph */
+    font-size: 12px;
   }
 }
 
-/* For Very Small Screens */
+/* Very Small Screens (<= 480px) */
 @media (max-width: 480px) {
   .details {
     padding: 30px 15px;
   }
-
   .details-card {
-    flex-direction: column; /* Stack content vertically */
-    text-align: center;
-    align-items: center;
-    /* height is already auto */
-    padding: 15px; /* Adjust padding for small screens */
+    padding: 15px;
   }
-
   .details-card-image {
-    max-width: 100px; /* Further reduced image size for very small screens */
-    margin: 0 auto 10px auto; /* Center image and adjust spacing */
+    max-width: 100px;
+    margin: 0 auto 10px auto;
   }
-
-  .details-card-text {
-    margin: 0; /* Remove any default margin */
-  }
-
   .details-card-text h3 {
-    font-size: 14px; /* Further reduced heading size */
-    margin-bottom: 5px; /* Add spacing below heading */
+    font-size: 14px;
+    margin-bottom: 5px;
   }
-
   .details-card-text p {
-    font-size: 11px; /* Further reduced paragraph size */
-    margin-bottom: 8px; /* Add spacing below paragraph */
+    font-size: 11px;
   }
 }
   
