@@ -395,7 +395,7 @@ html {
   background: rgba(5, 5, 46, 0.25);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  height: 250px; /* Card height */
+  /* Removed fixed heights so the card fits its content */
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -472,7 +472,7 @@ html {
 
   .details-card {
     padding: 15px;
-    height: 200px; /* Adjusted card height for tablets */
+    /* Removed height: 200px */
   }
 
   .details-card-image {
@@ -489,7 +489,6 @@ html {
 }
 
 /* For Mobile */
-/* For Mobile */
 @media (max-width: 768px) {
   .details {
     padding: 40px 20px;
@@ -499,7 +498,7 @@ html {
     flex-direction: column; /* Stack image and text vertically */
     text-align: center;
     align-items: center; /* Ensure content is centered */
-    height: auto; /* Allow dynamic height for smaller screens */
+    /* height is already auto */
     padding: 20px; /* Add consistent padding */
   }
 
@@ -533,7 +532,7 @@ html {
     flex-direction: column; /* Stack content vertically */
     text-align: center;
     align-items: center;
-    height: auto; /* Allow dynamic height */
+    /* height is already auto */
     padding: 15px; /* Adjust padding for small screens */
   }
 
