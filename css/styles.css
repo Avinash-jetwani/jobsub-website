@@ -1536,8 +1536,8 @@ html {
 }
 
 .faq-item.active .faq-answer {
-    max-height: 200px; /* Adjust to fit your answer content */
-    padding: 15px 20px;
+    max-height: 250px; /* Adjust to fit your answer content */
+    padding: 16px 35px;
     opacity: 1; /* Make the answer visible */
 }
 
