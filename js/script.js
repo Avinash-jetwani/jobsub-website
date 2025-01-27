@@ -3,43 +3,55 @@ const items = document.querySelectorAll('.carousel-item');
 const leftArrow = document.querySelector('.left-arrow');
 const rightArrow = document.querySelector('.right-arrow');
 
-// Initial setup
-let currentIndex = 1; // Start with the center image
+    // Start with the second item (index=1) as the center
+    let currentIndex = 1; 
 
-function updateCarousel() {
-  // Reset all items
-  items.forEach((item, index) => {
-    item.classList.remove('center-item');
-    item.style.order = index; // Set the default order for CSS layout
-  });
+    function updateCarousel() {
+      // Hide all items by default
+      items.forEach((item) => {
+        item.style.display = 'none'; 
+        item.classList.remove('center-item');
+        item.style.order = '0';
+        item.style.opacity = '0.5';
+        item.style.transform = 'scale(0.8)';
+      });
 
-  // Set the current center item
-  items[currentIndex].classList.add('center-item');
-  items[currentIndex].style.order = 0;
+      // Show center item
+      items[currentIndex].style.display = 'flex';
+      items[currentIndex].classList.add('center-item');
+      items[currentIndex].style.order = '0';
+      items[currentIndex].style.opacity = '1';
+      items[currentIndex].style.transform = 'scale(1)';
 
-  // Set orders for neighbors (circular rotation)
-  items[(currentIndex - 1 + items.length) % items.length].style.order = -1; // Left of center
-  items[(currentIndex + 1) % items.length].style.order = 1;  // Right of center
-}
+      // Determine left and right neighbor indexes (circularly)
+      const leftIndex = (currentIndex - 1 + items.length) % items.length;
+      const rightIndex = (currentIndex + 1) % items.length;
 
-// Move to the next image
-function moveToNext() {
-  currentIndex = (currentIndex + 1) % items.length; 
-  updateCarousel();
-}
+      // Show left neighbor
+      items[leftIndex].style.display = 'flex';
+      items[leftIndex].style.order = '-1';
 
-// Move to the previous image
-function moveToPrev() {
-  currentIndex = (currentIndex - 1 + items.length) % items.length; 
-  updateCarousel();
-}
+      // Show right neighbor
+      items[rightIndex].style.display = 'flex';
+      items[rightIndex].style.order = '1';
+    }
 
-// Add event listeners for the arrows
-rightArrow.addEventListener('click', moveToNext);
-leftArrow.addEventListener('click', moveToPrev);
+    function moveToNext() {
+      currentIndex = (currentIndex + 1) % items.length; 
+      updateCarousel();
+    }
 
-// Initialize the carousel
-updateCarousel();
+    function moveToPrev() {
+      currentIndex = (currentIndex - 1 + items.length) % items.length; 
+      updateCarousel();
+    }
+
+    // Arrow listeners
+    rightArrow.addEventListener('click', moveToNext);
+    leftArrow.addEventListener('click', moveToPrev);
+
+    // Initialize carousel
+    updateCarousel();
 
 // FAQ Toggle
 const faqItems = document.querySelectorAll('.faq-item');

@@ -1106,341 +1106,305 @@ html {
        them into a single column. Now they remain left-right.
     */
 
-  /* 
-    APP PREVIEW SECTION 
-  */
-  .app-preview {
-    position: relative; /* Ensure the section is positioned properly for background */
-    padding: 60px 20px;
-    background: url("../images/app-preview-bg.png") no-repeat center center / cover, #080B10; /* Image with fallback color */
-    text-align: center;
-    color: #EAE9E9; /* Pearl White for text */
-    overflow: hidden; /* Prevent content overflow */
-  }
-  
-  .app-preview .section-title {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #EAE9E9;
-  }
-  
-  .app-preview .section-description {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 17px;
-    margin-bottom: 40px;
-    color: #CDDDF2;
-  }
-  
-/* Carousel Container */
-.carousel-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  margin-bottom: 40px;
-  overflow: hidden;
-  height: 400px; /* Fixed height for the carousel */
-}
+    /* 
+      APP PREVIEW SECTION 
+    */
+    .app-preview {
+      position: relative; 
+      padding: 60px 20px;
+      background: url("https://jobsub-website.s3.eu-west-2.amazonaws.com/app-preview-bg.png") no-repeat center center / cover, #080B10; 
+      text-align: center;
+      color: #EAE9E9; 
+      overflow: hidden; 
+    }
+    
+    .app-preview .section-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #EAE9E9;
+    }
+    
+    .app-preview .section-description {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      margin-bottom: 40px;
+      color: #CDDDF2;
+    }
+    
+    /* Carousel Container */
+    .carousel-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin-bottom: 40px;
+      overflow: hidden;
+      height: 400px; /* Fixed height for the carousel */
+    }
 
-/* Carousel Item */
-.carousel-item {
-  flex: 0 0 150px; /* Default size for side images */
-  transform: scale(0.8); /* Shrink side images */
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  opacity: 0.5; /* Reduce opacity for side images */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    /* Carousel Item */
+    .carousel-item {
+      /* Hide by default, only left/center/right will be shown in JS */
+      display: none; 
+      
+      flex: 0 0 150px; 
+      transform: scale(0.8); 
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 0.5; 
+      justify-content: center;
+      align-items: center;
+    }
 
-.carousel-item img {
-  max-width: 100%; /* Scale image to fit within the container width */
-  max-height: 100%; /* Scale image to fit within the container height */
-  object-fit: contain; /* Ensure the full image is displayed without cropping */
-  border-radius: 10px; /* Rounded corners */
-}
+    .carousel-item img {
+      max-width: 100%; 
+      max-height: 100%; 
+      object-fit: contain; 
+      border-radius: 10px; 
+    }
 
-/* Center Image Styling */
-.carousel-item.center-item {
-  flex: 0 0 300px; /* Larger size for center image */
-  transform: scale(1); /* No scaling for the center image */
-  opacity: 1; /* Full opacity for the center image */
-  z-index: 2; /* Bring the center image to the front */
-}
+    /* Center Image Styling */
+    .carousel-item.center-item {
+      flex: 0 0 300px; 
+      transform: scale(1); 
+      opacity: 1; 
+      z-index: 2; 
+    }
 
-.carousel-item.center-item img {
-  max-width: 65%; /* Slightly larger width for center image */
-  max-height: 100%; /* Ensure it fits the container height */
-  object-fit: contain; /* Show the full image without cropping */
-}
-  
-  /* Carousel Arrows */
-  .carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #05052E;
-    color: #FFFFFF;
-    border: 0.7px solid rgba(255, 255, 255, 0.8);
-    padding: 10px 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 20px;
-    z-index: 10;
-    transition: background-color 0.3s ease;
-    fill-opacity: 0.25;
-    stroke: white;
-  }
-  
-  .carousel-arrow.left-arrow {
-    left: calc(50% - 150px); /* Adjust closer to the center image */
-  }
-  
-  .carousel-arrow.right-arrow {
-    right: calc(50% - 150px); /* Adjust closer to the center image */
-  }
-  
-  .carousel-arrow:hover {
-    background-color: #004080;
-  }
-  
-  /* CTA Buttons (Download links) */
- /* App Preview Buttons */
-.cta {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 20px; /* Space between the buttons */
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
-}
+    .carousel-item.center-item img {
+      max-width: 65%;
+      max-height: 100%; 
+      object-fit: contain; 
+    }
+    
+    /* Carousel Arrows */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #05052E;
+      color: #FFFFFF;
+      border: 0.7px solid rgba(255, 255, 255, 0.8);
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      z-index: 10;
+      transition: background-color 0.3s ease;
+      fill-opacity: 0.25;
+      stroke: white;
+    }
+    
+    .carousel-arrow.left-arrow {
+      left: calc(50% - 150px); 
+    }
+    
+    .carousel-arrow.right-arrow {
+      right: calc(50% - 150px); 
+    }
+    
+    .carousel-arrow:hover {
+      background-color: #004080;
+    }
+    
+    /* CTA Buttons (Download links) */
+    .cta {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px; 
+      flex-wrap: wrap;
+    }
 
-/* App Store Button */
-.cta .app-store {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px; /* Spacing between logo and text */
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 0.5px solid #FFF; /* Border color */
-  background: #010101; /* Dark background for App Store */
-  color: #FFF;
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-decoration: none;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
-  max-width: 180px; /* Limit button width */
-  width: 100%; /* Full-width for smaller screens */
-}
+    .cta .app-store,
+    .cta .play-store {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px; 
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+      max-width: 180px; 
+      width: 100%; 
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      cursor: pointer;
+    }
 
-.cta .app-store:hover {
-  background: #FFF; /* White background on hover */
-  color: #010101; /* Dark text on hover */
-  transform: scale(1.05); /* Slight hover effect */
-}
+    .cta .app-store {
+      border: 0.5px solid #FFF; 
+      background: #010101; 
+      color: #FFF;
+    }
+    .cta .app-store:hover {
+      background: #FFF; 
+      color: #010101; 
+      transform: scale(1.05);
+    }
 
-/* Google Play Button */
-.cta .play-store {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px; /* Spacing between logo and text */
-  padding: 10px 20px;
-  border-radius: 10px;
-  background: #FFF; /* White background for Google Play */
-  color: #000; /* Black text */
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-decoration: none;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
-  max-width: 180px; /* Limit button width */
-  width: 100%; /* Full-width for smaller screens */
-}
+    .cta .play-store {
+      background: #FFF;
+      color: #000;
+    }
+    .cta .play-store:hover {
+      background: #010101; 
+      color: #FFF; 
+      transform: scale(1.05); 
+    }
 
-.cta .play-store:hover {
-  background: #010101; /* Dark background on hover */
-  color: #FFF; /* White text on hover */
-  transform: scale(1.05); /* Slight hover effect */
-}
+    .cta .btn img {
+      width: 32px; 
+      height: 32px;
+    }
+    .cta .btn .btn-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    .cta .btn .btn-subtitle {
+      font-size: 12px; 
+      opacity: 0.8;
+    }
+    .cta .btn .btn-title {
+      font-size: 18px; 
+      font-weight: bold;
+    }
 
-/* Icon inside the buttons */
-.cta .btn img {
-  width: 32px; /* Icon size */
-  height: 32px;
-}
+    /* Responsive Adjustments for CTA Buttons */
+    @media (max-width: 992px) {
+      .cta {
+        gap: 22px; 
+      }
+      .cta .btn {
+        font-size: 14px; 
+        padding: 10px 20px;
+      }
+    }
 
-/* Text inside the buttons */
-.cta .btn .btn-text {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
+    @media (max-width: 768px) {
+      .cta {
+        gap: 20px; 
+      }
+      .cta .btn {
+        font-size: 12px; 
+        padding: 8px 16px; 
+      }
+    }
 
-.cta .btn .btn-subtitle {
-  font-size: 12px; /* Smaller font for subtitle */
-  opacity: 0.8;
-}
+    @media (max-width: 480px) {
+      .cta {
+        gap: 18px; 
+      }
+      .cta .btn {
+        font-size: 10px; 
+        padding: 6px 14px; 
+      }
+    }
 
-.cta .btn .btn-title {
-  font-size: 18px; /* Larger font for title */
-  font-weight: bold;
-}
+    /* RESPONSIVE DESIGN */
+    /* For Tablets */
+    @media (max-width: 992px) {
+      .carousel-container {
+        height: 300px; 
+      }
+      .carousel-item {
+        flex: 0 0 120px; 
+        transform: scale(0.75); 
+      }
+      .carousel-item.center-item {
+        flex: 0 0 250px; 
+      }
+      .carousel-item img {
+        max-width: 80%; 
+        max-height: 100%; 
+      }
+      .carousel-arrow {
+        padding: 8px 12px; 
+        font-size: 18px;
+      }
+    }
 
-/* Responsive Adjustments for CTA Buttons */
-@media (max-width: 992px) {
-  .cta {
-      gap: 22px; /* Reduce gap for tablets */
-  }
-  .cta .btn {
-      font-size: 14px; /* Reduce font size for tablets */
-      padding: 10px 20px; /* Adjust padding */
-  }
-}
+    /* For Mobile */
+    @media (max-width: 768px) {
+      .carousel-container {
+        height: 250px; 
+      }
+      .carousel-item {
+        flex: 0 0 100px; 
+        transform: scale(0.7); 
+        opacity: 0.6; 
+      }
+      .carousel-item.center-item {
+        flex: 0 0 200px; 
+      }
+      .carousel-item img {
+        max-width: 70%; 
+        max-height: 100%; 
+      }
+      .carousel-arrow {
+        padding: 6px 10px; 
+        font-size: 16px;
+      }
+    }
 
-@media (max-width: 768px) {
-  .cta {
-      gap: 20px; /* Reduce gap further for mobile */
-  }
-  .cta .btn {
-      font-size: 12px; /* Reduce font size for mobile */
-      padding: 8px 16px; /* Adjust padding */
-  }
-}
-
-@media (max-width: 480px) {
-  .cta {
-      gap: 18px; /* Reduce gap for very small screens */
-  }
-  .cta .btn {
-      font-size: 10px; /* Smaller font for very small screens */
-      padding: 6px 14px; /* Adjust padding */
-  }
-}
-  
-
-  /* RESPONSIVE DESIGN */
-
-/* For Tablets */
-@media (max-width: 992px) {
-  .carousel-container {
-    height: 300px; /* Reduce height for tablets */
-  }
-
-  .carousel-item {
-    flex: 0 0 120px; /* Smaller size for side images */
-    transform: scale(0.75); /* Slightly smaller scaling for side images */
-  }
-
-  .carousel-item.center-item {
-    flex: 0 0 250px; /* Adjust center image size for tablets */
-  }
-
-  .carousel-item img {
-    max-width: 80%; /* Scale image for smaller screens */
-    max-height: 100%; /* Scale image height proportionally */
-  }
-
-  .carousel-arrow {
-    padding: 8px 12px; /* Adjust arrow size for tablets */
-    font-size: 18px;
-  }
-}
-
-/* For Mobile */
-@media (max-width: 768px) {
-  .carousel-container {
-    height: 250px; /* Reduce height for mobile */
-  }
-
-  .carousel-item {
-    flex: 0 0 100px; /* Smaller size for side images */
-    transform: scale(0.7); /* Smaller scaling for side images */
-    opacity: 0.6; /* Slightly increase opacity */
-  }
-
-  .carousel-item.center-item {
-    flex: 0 0 200px; /* Adjust center image size for mobile */
-  }
-
-  .carousel-item img {
-    max-width: 70%; /* Reduce width for mobile */
-    max-height: 100%; /* Ensure image fits container height */
-  }
-
-  .carousel-arrow {
-    padding: 6px 10px; /* Adjust arrow size for mobile */
-    font-size: 16px;
-  }
-}
-
-/* For Very Small Screens */
-/* For Very Small Screens */
-@media (max-width: 480px) {
-  .carousel-container {
-    height: 200px; /* Reduce height for very small screens */
-    display: flex;
-    justify-content: center; /* Center all items */
-    align-items: center;
-    position: relative;
-  }
-
-  .carousel-item {
-    flex: 0 0 114px; /* Reduce size of side images */
-    transform: scale(0.7); /* Shrink side images further */
-    opacity: 0.6; /* Maintain side visibility */
-    margin: 0 2px; /* Reduce the gap between images */
-  }
-
-  .carousel-item.center-item {
-    flex: 0 0 150px; /* Adjust center image size */
-    transform: scale(1); /* Normal scale for center image */
-    opacity: 1; /* Full visibility for center image */
-  }
-
-  .carousel-item.center-item img {
-    max-width: 65%; /* Center image width */
-    max-height: 100%; /* Center image height */
-    object-fit: contain; /* Ensure image fits without cropping */
-  }
-
-  .carousel-item img {
-    max-width: 80%; /* Adjust width for side images */
-    max-height: 90%; /* Adjust height for side images */
-    object-fit: contain; /* Ensure side images are fully visible */
-  }
-
-  .carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #0C3273;
-    color: #FFFFFF;
-    border: none;
-    padding: 5px 10px; /* Smaller arrow size */
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 14px;
-    z-index: 10;
-    transition: background-color 0.3s ease;
-  }
-
-  .carousel-arrow.left-arrow {
-    left: calc(50% - 92px); /* Adjust closer to center image */
-  }
-
-  .carousel-arrow.right-arrow {
-    right: calc(50% - 92px); /* Adjust closer to center image */
-  }
-
-  .carousel-arrow:hover {
-    background-color: #004080;
-  }
-}
-
+    /* For Very Small Screens */
+    @media (max-width: 480px) {
+      .carousel-container {
+        height: 200px; 
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        position: relative;
+      }
+      .carousel-item {
+        flex: 0 0 114px; 
+        transform: scale(0.7); 
+        opacity: 0.6; 
+        margin: 0 2px; 
+      }
+      .carousel-item.center-item {
+        flex: 0 0 150px; 
+        transform: scale(1); 
+        opacity: 1; 
+      }
+      .carousel-item.center-item img {
+        max-width: 65%; 
+        max-height: 100%; 
+        object-fit: contain; 
+      }
+      .carousel-item img {
+        max-width: 80%; 
+        max-height: 90%; 
+        object-fit: contain; 
+      }
+      .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #0C3273;
+        color: #FFFFFF;
+        border: none;
+        padding: 5px 10px; 
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 14px;
+        z-index: 10;
+        transition: background-color 0.3s ease;
+      }
+      .carousel-arrow.left-arrow {
+        left: calc(50% - 92px); 
+      }
+      .carousel-arrow.right-arrow {
+        right: calc(50% - 92px); 
+      }
+      .carousel-arrow:hover {
+        background-color: #004080;
+      }
+    }
 
 /* FAQ Section */
 .faq {
