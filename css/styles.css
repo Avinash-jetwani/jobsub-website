@@ -2096,8 +2096,8 @@ html {
 }
 
 .social-icons .social-icon {
-    width: 40px; /* Adjust size for icons */
-    height: 40px;
+    width: 80px; /* Adjust size for icons */
+    height: 80px;
     display: inline-block;
     background-color: transparent; /* Default white background */
     border-radius: 50%; /* Circle shape */
@@ -2111,7 +2111,7 @@ html {
 }
 
 .social-icons .social-icon img {
-    max-width: 16px; /* Adjust the size of icons */
+    max-width: 26px; /* Adjust the size of icons */
     height: auto;
 }
 
