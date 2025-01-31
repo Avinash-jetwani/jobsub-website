@@ -34,6 +34,7 @@ html {
   border-radius: 23px;
   padding: 8px 20px;
   z-index: 1000;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Subtle shadow */
 }
 
 .navbar-link {
@@ -89,6 +90,7 @@ html {
 .hero-content {
   max-width: 45%; /* Reduce width to give more space for the image */
   z-index: 1;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .hero-content .redefine-work {
@@ -103,6 +105,7 @@ html {
   background: rgba(5, 5, 46, 0.25);
   padding: 5px 15px;
   margin-bottom: 15px; /* Reduced margin */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .hero-content h1 {
@@ -111,15 +114,17 @@ html {
   line-height: 1.2; /* Adjusted line height */
   letter-spacing: -1px;
   margin-bottom: 15px; /* Reduced margin */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .hero-content .subheading {
-  color: #828E9D;
+  color: #e0e9f5e1;
   font-family: 'Manrope', sans-serif;
   font-size: 20px; /* Decreased font size */
   font-weight: 400;
   line-height: 1.5; /* Adjusted line height */
   margin-bottom: 20px; /* Reduced margin */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 /* Hero Buttons */
