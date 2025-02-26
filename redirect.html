@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      
+      // If the device is an iOS device
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.location.href = "https://apps.apple.com/gb/app/jobsub/id1585927640";
+      }
+      // If the device is an Android device
+      else if (/android/i.test(userAgent)) {
+        window.location.href = "https://play.google.com/store/apps/details?id=com.app.JobSub&pcampaignid=web_share";
+      }
+      // Fallback for other devices (desktop or unknown)
+      else {
+        window.location.href = "https://jobsub.io";
+      }
+    });
+  </script>
+</head>
+<body>
+  <p>Redirecting to the appropriate store...</p>
+</body>
+</html>
