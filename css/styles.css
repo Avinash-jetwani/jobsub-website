@@ -798,20 +798,32 @@ html {
 }
 
 /* Trade Cards */
+.trades-marquee-wrapper {
+  width: 100%;
+  overflow: hidden; /* Hide overflow to prevent scrollbars */
+}
+
 .trades-marquee {
   display: flex;
-  gap: 60px; /* Increased space between cards */
-  animation: scroll-left 20s linear infinite; /* Smooth continuous scrolling */
+  animation: scroll-left 30s linear infinite; /* Smooth continuous scrolling */
+  width: fit-content; /* Allow container to be as wide as needed */
+}
+
+/* Group of cards */
+.trades-card-group {
+  display: flex;
+  gap: 60px; /* Gap between cards within a group */
+  padding-right: 60px; /* Equal to gap - creates spacing between last and first card */
 }
 
 .trade-card {
   flex: 0 0 auto; /* Prevent shrinking or growing */
-  width: 180px; /* Larger card width */
+  width: 180px; /* Card width */
   text-align: center;
-  border-radius: 20px; /* Less rounded corners */
+  border-radius: 20px; /* Rounded corners */
   border: 0.7px solid rgba(255, 255, 255, 0.8); /* Subtle white border */
   background: rgba(5, 5, 46, 0.25); /* Semi-transparent dark background */
-  padding: 20px; /* Increased padding */
+  padding: 20px; /* Padding */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
 }
@@ -843,11 +855,12 @@ html {
 
 /* Animation Keyframes */
 @keyframes scroll-left {
-  from {
+  0% {
     transform: translateX(0);
   }
-  to {
-    transform: translateX(-100%); /* Scroll left */
+  100% {
+    /* Move exactly by the width of the first card group */
+    transform: translateX(-50%);
   }
 }
 

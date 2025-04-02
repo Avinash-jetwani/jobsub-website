@@ -70,15 +70,33 @@ faqItems.forEach((item) => {
     });
 });
 
-// Trades Section
-const tradesMarquee = document.querySelector('.trades-marquee');
-
-tradesMarquee.addEventListener('mouseenter', () => {
-    tradesMarquee.style.animationPlayState = 'paused';
-});
-
-tradesMarquee.addEventListener('mouseleave', () => {
-    tradesMarquee.style.animationPlayState = 'running';
+// Trades Section - Infinite Scroll
+document.addEventListener('DOMContentLoaded', function() {
+  const tradesMarquee = document.querySelector('.trades-marquee');
+  const tradesWrapper = document.querySelector('.trades-marquee-wrapper');
+  
+  if (tradesMarquee && tradesWrapper) {
+    // Get the first group of cards to calculate total width properly
+    const firstCardGroup = tradesMarquee.querySelector('.trades-card-group');
+    
+    // Set the animation speed based on the number of cards (more cards = slower animation)
+    // This ensures a consistent speed regardless of the number of cards
+    const cardCount = firstCardGroup.querySelectorAll('.trade-card').length;
+    const animationDuration = Math.max(5, cardCount * 6); // Minimum 5 seconds, 6 seconds per card
+    
+    // Apply animation with the calculated duration
+    tradesMarquee.style.animation = `scroll-left ${animationDuration}s linear infinite`;
+    
+    // Pause animation on hover (using the wrapper for better user experience)
+    tradesWrapper.addEventListener('mouseenter', () => {
+      tradesMarquee.style.animationPlayState = 'paused';
+    });
+    
+    // Resume animation when mouse leaves
+    tradesWrapper.addEventListener('mouseleave', () => {
+      tradesMarquee.style.animationPlayState = 'running';
+    });
+  }
 });
 
 // testimonialsCarousel
